@@ -1,3 +1,7 @@
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import org.json.JSONArray;
 
 /**
@@ -8,13 +12,36 @@ import org.json.JSONArray;
  * to do the actual GET, POST, etc. calls.
  */
 public class WPTestClient {
+    // Pull these in from the properties file to build the service endpoints
+    private String host;
+    private String protocol;
+
+    // Service endpoint templates
+    private String wpSite = "%s://%s";
+    private String wpGetPostsTemplate = "/wp-json/wp/v2/posts";
+
+    /**
+     * WPTestClient
+     * Constructor for the class.
+     * @param incomingHost
+     * @param incomingProtocol
+     */
+    public WPTestClient(String incomingHost, String incomingProtocol) {
+        host = incomingHost;
+        protocol = incomingProtocol;
+
+        // Set the site template string to use with endpoints
+        wpSite = String.format("%s://%s", host, protocol);
+    }
 
     /**
      * getPosts
      * Get a list of posts on the test Wordpress site. (GET request)
      * @return
      */
-    public void getPosts() {
+    public void getPosts() throws UnirestException {
+        String uri = wpSite + wpGetPostsTemplate;
+        HttpResponse<JsonNode> jsonResponse = Unirest.get(uri).asJson();
     }
 
     /**
