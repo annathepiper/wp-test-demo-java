@@ -39,9 +39,10 @@ public class WPTestClient {
      * Get a list of posts on the test Wordpress site. (GET request)
      * @return
      */
-    public void getPosts() throws UnirestException {
+    public JSONArray getPosts() throws UnirestException {
         String uri = wpSite + wpGetPostsTemplate;
         HttpResponse<JsonNode> jsonResponse = Unirest.get(uri).asJson();
+        return jsonResponse.getBody().getArray();
     }
 
     /**
