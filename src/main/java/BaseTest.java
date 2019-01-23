@@ -9,9 +9,13 @@ import java.util.ResourceBundle;
  * This test class is the master class for the TestNG suite. Does necessary setup work for all classes.
  */
 public class BaseTest {
+    // Use these for the WP Test Client
     public String protocol;
     public String host;
+
+    // Use these for test default values
     public String getPostId;
+
     private static ResourceBundle rb = ResourceBundle.getBundle("wp-test-demo");
     public WPTestClient wpTC;
 
@@ -23,6 +27,6 @@ public class BaseTest {
         getPostId = rb.getString("getPostId");
 
         // We also need a WPTestClient object for all the tests to use
-        wpTC = new WPTestClient(protocol, host, getPostId);
+        wpTC = new WPTestClient(protocol, host);
     }
 }
