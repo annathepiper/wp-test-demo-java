@@ -9,7 +9,7 @@ import org.json.JSONObject;
  * WPTestClient
  * @author Angela Korra'ti
  *
- * Last updated 1/22/2019
+ * Last updated 1/23/2019
  * This class is the helper client the tests will use to interact with the Wordpress API endpoints. It uses Unirest
  * to do the actual GET, POST, etc. calls.
  */
@@ -28,6 +28,8 @@ public class WPTestClient {
     private String wpGetTagByIdTemplate = "/wp-json/wp/v2/tags/%s";
     private String wpGetPagesTemplate = "/wp-json/wp/v2/pages";
     private String wpGetPageByIdTemplate = "/wp-json/wp/v2/pages/%s";
+    private String wpGetCommentsTemplate = "/wp-json/wp/v2/comments";
+    private String wpGetCommentByIdTemplate = "/wp-json/wp/v2/comments/%s";
 
     /**
      * WPTestClient
@@ -105,6 +107,7 @@ public class WPTestClient {
         HttpResponse<JsonNode> jsonResponse = Unirest.get(uri).asJson();
         return jsonResponse.getBody().getObject();
     }
+
     /**
      * getPages
      * Get a JSONArray of pages on the test Wordpress site.
@@ -122,6 +125,26 @@ public class WPTestClient {
      */
     public JSONObject getPage(String pageId) throws UnirestException {
         String uri = wpSite + String.format(wpGetPageByIdTemplate, pageId);
+        HttpResponse<JsonNode> jsonResponse = Unirest.get(uri).asJson();
+        return jsonResponse.getBody().getObject();
+    }
+    /**
+     * getComments
+     * Get a JSONArray of comments on the test Wordpress site.
+     */
+    public JSONArray getComments() throws UnirestException {
+        String uri = wpSite + wpGetCommentsTemplate;
+        HttpResponse<JsonNode> jsonResponse = Unirest.get(uri).asJson();
+        return jsonResponse.getBody().getArray();
+    }
+
+    /**
+     * getComment
+     * Get a specific comment on the test Wordpress site by comment ID.
+     * @return JSONObject containing the comment data
+     */
+    public JSONObject getComment(String commentId) throws UnirestException {
+        String uri = wpSite + String.format(wpGetCommentByIdTemplate, commentId);
         HttpResponse<JsonNode> jsonResponse = Unirest.get(uri).asJson();
         return jsonResponse.getBody().getObject();
     }
