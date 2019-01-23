@@ -1,9 +1,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Wordpress Test" verbose="1" >
-    <test name="Test Posts" >
+    <test name="Wordpress Test" >
         <classes>
             <class name="TestPosts" />
+            <class name="TestCategories" />
+            <class name="TestTags" />
+            <class name="TestPages" />
         </classes>
     </test>
 </suite>
