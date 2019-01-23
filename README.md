@@ -11,6 +11,8 @@ To run this suite, I set up a test Wordpress site using Docker Compose. You can 
 
 I also add aliases for wordpress.local and phpmyadmin.local to my hosts file, so that those URLs will work as the automation runs.
 
+The test data I'm using is a copy of one of my live Wordpress sites (http://angelahighland.wordpress.com), which has provided me the items to fill in for my properties file.
+
 The main tool I'm using to run the suite is IntelliJ. The IML file for IntelliJ is included in this repo, as well as the pom.xml, as this is set up as a Maven project. I use the Unirest library to hit the Wordpress endpoints.
 
 ### Maven dependencies
@@ -28,6 +30,7 @@ Dependencies included in the POM are:
 * Using the org.json classes to process JSON payloads
 * Using TestNG functionality to run the test suite, and to annotate test methods
 * Use of a POM file to set Maven dependencies
+* Testing against a site running as a Docker container
 
 ## Reference links
 * Misc-configs repo where I have my Docker Compose file for a test Wordpress site: https://github.com/annathepiper/misc-configs
