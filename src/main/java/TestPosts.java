@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
  * TestPosts
  * @author Angela Korra'ti
  *
- * Last updated 1/22/2019
+ * Last updated 1/23/2019
  * This class contains test cases related to posts on the Wordpress test site.
  */
 public class TestPosts extends BaseTest {
@@ -38,7 +38,7 @@ public class TestPosts extends BaseTest {
         Assert.assertNotNull(response,"GetPosts endpoint returned a null object. Post may not exist.");
         Assert.assertEquals(response.get("id").toString(), getPostId,
                 "GetPosts endpoint didn't return correct ID number.");
-        Assert.assertEquals(renderedTitle.get("rendered"),"Hello, readers!",
+        Assert.assertEquals(renderedTitle.get("rendered"), getPostTitle,
                 "Retrieved post from GetPosts endpoint does not have expected title.");
     }
 }
