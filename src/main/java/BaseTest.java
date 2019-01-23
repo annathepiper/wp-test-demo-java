@@ -22,6 +22,8 @@ public class BaseTest {
     public String getTagName;
     public String getPageId;
     public String getPageTitle;
+    public String getCommentId;
+    public String getCommentContent;
 
     private static ResourceBundle rb = ResourceBundle.getBundle("wp-test-demo");
     public WPTestClient wpTC;
@@ -39,6 +41,8 @@ public class BaseTest {
         getTagName = rb.getString("getTagName");
         getPageId = rb.getString("getPageId");
         getPageTitle = rb.getString("getPageTitle");
+        getCommentId = rb.getString("getCommentId");
+        getCommentContent = rb.getString("getCommentContent");
 
         // We also need a WPTestClient object for all the tests to use
         wpTC = new WPTestClient(protocol, host);
