@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Wordpress Test" verbose="1" >
-    <test name="TestPosts" >
+    <test name="Test Posts" >
         <classes>
             <class name="TestPosts" />
         </classes>
