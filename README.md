@@ -29,7 +29,7 @@ Dependencies included in the POM are:
 * Using the Unirest library to hit the service endpoints
 * Using the org.json classes to process JSON payloads
 * Using TestNG functionality to run the test suite, and to annotate test methods
-* Use of a POM file to set Maven dependencies
+* Use of a POM file to set Maven dependencies and to run the test suite via Maven as well as TestNG
 * Testing against a site running as a Docker container
 
 ## Reference links
