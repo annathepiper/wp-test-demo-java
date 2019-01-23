@@ -7,6 +7,7 @@
             <class name="TestCategories" />
             <class name="TestTags" />
             <class name="TestPages" />
+            <class name="TestComments" />
         </classes>
     </test>
 </suite>
