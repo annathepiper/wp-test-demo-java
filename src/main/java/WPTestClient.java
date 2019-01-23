@@ -3,11 +3,13 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  * WPTestClient
  * @author Angela Korra'ti
  *
+ * Last updated 1/22/2019
  * This class is the helper client the tests will use to interact with the Wordpress API endpoints. It uses Unirest
  * to do the actual GET, POST, etc. calls.
  */
@@ -19,6 +21,7 @@ public class WPTestClient {
     // Service endpoint templates
     private String wpSite = "%s://%s";
     private String wpGetPostsTemplate = "/wp-json/wp/v2/posts";
+    private String wpGetPostByIdTemplate = "/wp-json/wp/v2/posts/%s";
 
     /**
      * WPTestClient
@@ -56,7 +59,10 @@ public class WPTestClient {
      * getPost
      * Get a specific post on the test Wordpress site by post ID. (GET request)
      */
-    public void getPost() {
+    public JSONObject getPost(String postId) throws UnirestException {
+        String uri = wpSite + String.format(wpGetPostByIdTemplate,postId);
+        HttpResponse<JsonNode> jsonResponse = Unirest.get(uri).asJson();
+        return jsonResponse.getBody().getObject();
     }
 
     /**
