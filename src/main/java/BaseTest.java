@@ -5,7 +5,7 @@ import java.util.ResourceBundle;
  * BaseTest
  * @author Angela Korra'ti
  *
- * Last updated 1/23/2019
+ * Last updated 1/25/2019
  * This test class is the master class for the TestNG suite. Does necessary setup work for all classes.
  */
 public class BaseTest {
@@ -24,6 +24,14 @@ public class BaseTest {
     public String getPageTitle;
     public String getCommentId;
     public String getCommentContent;
+    public String getTaxonomyTag;
+    public String getTaxonomyName;
+    public String getMediaId;
+    public String getMediaTitle;
+    public String getUserId;
+    public String getUserName;
+    public String getPostTypeTag;
+    public String getPostTypeName;
 
     private static ResourceBundle rb = ResourceBundle.getBundle("wp-test-demo");
     public WPTestClient wpTC;
@@ -43,6 +51,14 @@ public class BaseTest {
         getPageTitle = rb.getString("getPageTitle");
         getCommentId = rb.getString("getCommentId");
         getCommentContent = rb.getString("getCommentContent");
+        getTaxonomyTag = rb.getString("getTaxonomyTag");
+        getTaxonomyName = rb.getString("getTaxonomyName");
+        getMediaId = rb.getString("getMediaId");
+        getMediaTitle = rb.getString("getMediaTitle");
+        getUserId = rb.getString("getUserId");
+        getUserName = rb.getString("getUserName");
+        getPostTypeTag = rb.getString("getPostTypeTag");
+        getPostTypeName = rb.getString("getPostTypeName");
 
         // We also need a WPTestClient object for all the tests to use
         wpTC = new WPTestClient(protocol, host);
