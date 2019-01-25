@@ -9,7 +9,7 @@ import org.json.JSONObject;
  * WPTestClient
  * @author Angela Korra'ti
  *
- * Last updated 1/23/2019
+ * Last updated 1/25/2019
  * This class is the helper client the tests will use to interact with the Wordpress API endpoints. It uses Unirest
  * to do the actual GET, POST, etc. calls.
  */
@@ -30,6 +30,14 @@ public class WPTestClient {
     private String wpGetPageByIdTemplate = "/wp-json/wp/v2/pages/%s";
     private String wpGetCommentsTemplate = "/wp-json/wp/v2/comments";
     private String wpGetCommentByIdTemplate = "/wp-json/wp/v2/comments/%s";
+    private String wpGetTaxonomiesTemplate = "/wp-json/wp/v2/taxonomies";
+    private String wpGetTaxonomyByTagTemplate = "/wp-json/wp/v2/taxonomies/%s";
+    private String wpGetMediaTemplate = "/wp-json/wp/v2/media";
+    private String wpGetMediaByIdTemplate = "/wp-json/wp/v2/media/%s";
+    private String wpGetUsersTemplate = "/wp-json/wp/v2/users";
+    private String wpGetUserByIdTemplate = "/wp-json/wp/v2/users/%s";
+    private String wpGetPostTypesTemplate = "/wp-json/wp/v2/types";
+    private String wpGetPostTypeByTagTemplate = "/wp-json/wp/v2/types/%s";
 
     /**
      * WPTestClient
@@ -128,6 +136,7 @@ public class WPTestClient {
         HttpResponse<JsonNode> jsonResponse = Unirest.get(uri).asJson();
         return jsonResponse.getBody().getObject();
     }
+
     /**
      * getComments
      * Get a JSONArray of comments on the test Wordpress site.
@@ -145,6 +154,90 @@ public class WPTestClient {
      */
     public JSONObject getComment(String commentId) throws UnirestException {
         String uri = wpSite + String.format(wpGetCommentByIdTemplate, commentId);
+        HttpResponse<JsonNode> jsonResponse = Unirest.get(uri).asJson();
+        return jsonResponse.getBody().getObject();
+    }
+
+    /**
+     * getTaxonomies
+     * Get a JSONArray of taxonomies on the test Wordpress site.
+     */
+    public JSONArray getTaxonomies() throws UnirestException {
+        String uri = wpSite + wpGetTaxonomiesTemplate;
+        HttpResponse<JsonNode> jsonResponse = Unirest.get(uri).asJson();
+        return jsonResponse.getBody().getArray();
+    }
+
+    /**
+     * getTaxonomy
+     * Get a specific taxonomy on the test Wordpress site by its tag.
+     * @return JSONObject containing the taxonomy data
+     */
+    public JSONObject getTaxonomy(String taxonomyTag) throws UnirestException {
+        String uri = wpSite + String.format(wpGetTaxonomyByTagTemplate, taxonomyTag);
+        HttpResponse<JsonNode> jsonResponse = Unirest.get(uri).asJson();
+        return jsonResponse.getBody().getObject();
+    }
+
+    /**
+     * getMedia
+     * Get a JSONArray of media on the test Wordpress site.
+     */
+    public JSONArray getMedia() throws UnirestException {
+        String uri = wpSite + wpGetMediaTemplate;
+        HttpResponse<JsonNode> jsonResponse = Unirest.get(uri).asJson();
+        return jsonResponse.getBody().getArray();
+    }
+
+    /**
+     * getMediaById
+     * Get a specific media item on the test Wordpress site by its ID.
+     * @return JSONObject containing the media data
+     */
+    public JSONObject getMediaById(String mediaId) throws UnirestException {
+        String uri = wpSite + String.format(wpGetMediaByIdTemplate, mediaId);
+        HttpResponse<JsonNode> jsonResponse = Unirest.get(uri).asJson();
+        return jsonResponse.getBody().getObject();
+    }
+
+    /**
+     * getUsers
+     * Get a JSONArray of users on the test Wordpress site.
+     */
+    public JSONArray getUsers() throws UnirestException {
+        String uri = wpSite + wpGetUsersTemplate;
+        HttpResponse<JsonNode> jsonResponse = Unirest.get(uri).asJson();
+        return jsonResponse.getBody().getArray();
+    }
+
+    /**
+     * getUserById
+     * Get a specific user on the test Wordpress site by their ID.
+     * @return JSONObject containing the media data
+     */
+    public JSONObject getUserById(String userId) throws UnirestException {
+        String uri = wpSite + String.format(wpGetUserByIdTemplate, userId);
+        HttpResponse<JsonNode> jsonResponse = Unirest.get(uri).asJson();
+        return jsonResponse.getBody().getObject();
+    }
+
+    /**
+     * getPostTypes
+     * Get a JSONArray of post types on the test Wordpress site.
+     */
+    public JSONArray getPostTypes() throws UnirestException {
+        String uri = wpSite + wpGetPostTypesTemplate;
+        HttpResponse<JsonNode> jsonResponse = Unirest.get(uri).asJson();
+        return jsonResponse.getBody().getArray();
+    }
+
+    /**
+     * getPostType
+     * Get a specific post type on the test Wordpress site by its tag.
+     * @return JSONObject containing the post type data
+     */
+    public JSONObject getPostType(String postTypeTag) throws UnirestException {
+        String uri = wpSite + String.format(wpGetPostTypeByTagTemplate, postTypeTag);
         HttpResponse<JsonNode> jsonResponse = Unirest.get(uri).asJson();
         return jsonResponse.getBody().getObject();
     }
