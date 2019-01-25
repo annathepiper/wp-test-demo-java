@@ -8,6 +8,10 @@
             <class name="TestTags" />
             <class name="TestPages" />
             <class name="TestComments" />
+            <class name="TestTaxonomies" />
+            <class name="TestMedia" />
+            <class name="TestUsers" />
+            <class name="TestPostTypes" />
         </classes>
     </test>
 </suite>
