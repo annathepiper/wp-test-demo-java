@@ -1,5 +1,7 @@
 import org.testng.annotations.BeforeClass;
 import java.util.ResourceBundle;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * BaseTest
@@ -33,7 +35,13 @@ public class BaseTest {
     public String getPostTypeTag;
     public String getPostTypeName;
 
+    // For logging purposes
+    public final Logger wpLogger = LogManager.getLogger(this.getClass().getName());
+
+    // Resource bundle we're using to pull all the property strings out of
     private static ResourceBundle rb = ResourceBundle.getBundle("wp-test-demo");
+
+    // For generating the instance of the WP Test Client
     public WPTestClient wpTC;
 
     @BeforeClass
