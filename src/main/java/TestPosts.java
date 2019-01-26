@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
  * TestPosts
  * @author Angela Korra'ti
  *
- * Last updated 1/23/2019
+ * Last updated 1/25/2019
  * This class contains test cases related to posts on the Wordpress test site.
  */
 public class TestPosts extends BaseTest {
@@ -20,6 +20,7 @@ public class TestPosts extends BaseTest {
      */
     @Test
     public void TestGetPostsReturnsPosts() throws UnirestException {
+        wpLogger.info("Testing the Get Posts endpoint.");
         JSONArray response = wpTC.getPosts();
         Assert.assertTrue(response.length() > 0, "GetPosts endpoint not returning at least one object in JSONArray.");
         Assert.assertNotNull(response,"GetPosts endpoint returned a null response.");
@@ -33,6 +34,7 @@ public class TestPosts extends BaseTest {
      */
     @Test
     public void TestGetPostById() throws UnirestException {
+        wpLogger.info("Testing the Get Posts by Id endpoint.");
         JSONObject response = wpTC.getPost(getPostId);
         JSONObject renderedTitle = response.getJSONObject("title");
         Assert.assertNotNull(response,"GetPosts endpoint returned a null object. Post may not exist.");

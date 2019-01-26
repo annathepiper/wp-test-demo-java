@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
  * TestTags
  * @author Angela Korra'ti
  *
- * Last updated 1/23/2019
+ * Last updated 1/25/2019
  * This class contains test cases related to tags on the Wordpress test site.
  */
 public class TestTags extends BaseTest {
@@ -20,6 +20,7 @@ public class TestTags extends BaseTest {
      */
     @Test
     public void TestGetTagsReturnsTags() throws UnirestException {
+        wpLogger.info("Testing the Get Tags endpoint.");
         JSONArray response = wpTC.getTags();
         Assert.assertTrue(response.length() > 0,
                 "GetTags endpoint not returning at least one object in JSONArray.");
@@ -34,6 +35,7 @@ public class TestTags extends BaseTest {
      */
     @Test
     public void TestGetTagById() throws UnirestException {
+        wpLogger.info("Testing the Get Tag by Id endpoint.");
         JSONObject response = wpTC.getTag(getTagId);
         String tagName = response.getString("name");
         Assert.assertNotNull(response,"GetTag endpoint returned a null object. Tag may not exist.");

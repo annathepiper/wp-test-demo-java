@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
  * TestCategories
  * @author Angela Korra'ti
  *
- * Last updated 1/23/2019
+ * Last updated 1/25/2019
  * This class contains test cases related to categories on the Wordpress test site.
  */
 public class TestCategories extends BaseTest {
@@ -20,6 +20,7 @@ public class TestCategories extends BaseTest {
      */
     @Test
     public void TestGetCategoriesReturnsCategories() throws UnirestException {
+        wpLogger.info("Testing the Get Categories endpoint.");
         JSONArray response = wpTC.getCategories();
         Assert.assertTrue(response.length() > 0,
                 "GetCategories endpoint not returning at least one object in JSONArray.");
@@ -34,6 +35,7 @@ public class TestCategories extends BaseTest {
      */
     @Test
     public void TestGetCategoryById() throws UnirestException {
+        wpLogger.info("Testing the Get Category by Id endpoint.");
         JSONObject response = wpTC.getCategory(getCategoryId);
         String categoryName = response.getString("name");
         Assert.assertNotNull(response,"GetCategory endpoint returned a null object. Category may not exist.");

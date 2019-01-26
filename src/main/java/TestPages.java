@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
  * TestPages
  * @author Angela Korra'ti
  *
- * Last updated 1/23/2019
+ * Last updated 1/25/2019
  * This class contains test cases related to pages on the Wordpress test site.
  */
 public class TestPages extends BaseTest {
@@ -20,6 +20,7 @@ public class TestPages extends BaseTest {
      */
     @Test
     public void TestGetPagesReturnsPages() throws UnirestException {
+        wpLogger.info("Testing the Get Pages endpoint.");
         JSONArray response = wpTC.getPages();
         Assert.assertTrue(response.length() > 0,
                 "GetPages endpoint not returning at least one object in JSONArray.");
@@ -34,6 +35,7 @@ public class TestPages extends BaseTest {
      */
     @Test
     public void TestGetPageById() throws UnirestException {
+        wpLogger.info("Testing the Get Page by Id endpoint.");
         JSONObject response = wpTC.getPage(getPageId);
         JSONObject renderedTitle = response.getJSONObject("title");
         Assert.assertNotNull(response,"GetPages endpoint returned a null object. Page may not exist.");

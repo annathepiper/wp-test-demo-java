@@ -20,6 +20,7 @@ public class TestUsers extends BaseTest {
      */
     @Test
     public void TestGetUsersReturnsUsers() throws UnirestException {
+        wpLogger.info("Testing the Get Users endpoint.");
         JSONArray response = wpTC.getUsers();
         Assert.assertTrue(response.length() > 0,
                 "GetUsers endpoint not returning at least one object in JSONArray.");
@@ -34,6 +35,7 @@ public class TestUsers extends BaseTest {
      */
     @Test
     public void TestGetUserById() throws UnirestException {
+        wpLogger.info("Testing the Get User by Id endpoint.");
         JSONObject response = wpTC.getUserById(getUserId);
         String userName = response.getString("name");
         Assert.assertNotNull(response,"GetUsers endpoint returned a null object. User may not exist.");

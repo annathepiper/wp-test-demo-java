@@ -20,6 +20,7 @@ public class TestMedia extends BaseTest {
      */
     @Test
     public void TestGetMediaReturnsMedia() throws UnirestException {
+        wpLogger.info("Testing the Get Media endpoint.");
         JSONArray response = wpTC.getMedia();
         Assert.assertTrue(response.length() > 0,
                 "GetMedia endpoint not returning at least one object in JSONArray.");
@@ -34,6 +35,7 @@ public class TestMedia extends BaseTest {
      */
     @Test
     public void TestGetMediaById() throws UnirestException {
+        wpLogger.info("Testing the Get Media by Id endpoint.");
         JSONObject response = wpTC.getMediaById(getMediaId);
         JSONObject renderedTitle = response.getJSONObject("title");
         Assert.assertNotNull(response,"GetMedia endpoint returned a null object. Media may not exist.");

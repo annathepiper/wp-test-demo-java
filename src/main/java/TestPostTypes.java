@@ -20,6 +20,7 @@ public class TestPostTypes extends BaseTest {
      */
     @Test
     public void TestGetPostTypesReturnsPostTypes() throws UnirestException {
+        wpLogger.info("Testing the Get Post Types endpoint.");
         JSONArray response = wpTC.getPostTypes();
         Assert.assertTrue(response.length() > 0,
                 "GetPostTypes endpoint not returning at least one object in JSONArray.");
@@ -34,6 +35,7 @@ public class TestPostTypes extends BaseTest {
      */
     @Test
     public void TestGetPostTypeByTag() throws UnirestException {
+        wpLogger.info("Testing the Get Post Type by Tag endpoint.");
         JSONObject response = wpTC.getPostType(getPostTypeTag);
         String postTypeName = response.getString("name");
         Assert.assertNotNull(response,"GetPostTypes endpoint returned a null object. Post Type may not exist.");

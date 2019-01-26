@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
  * TestComments
  * @author Angela Korra'ti
  *
- * Last updated 1/23/2019
+ * Last updated 1/25/2019
  * This class contains test cases related to comments on the Wordpress test site.
  */
 public class TestComments extends BaseTest {
@@ -20,6 +20,7 @@ public class TestComments extends BaseTest {
      */
     @Test
     public void TestGetCommentsReturnsComments() throws UnirestException {
+        wpLogger.info("Testing the Get Comments endpoint.");
         JSONArray response = wpTC.getComments();
         Assert.assertTrue(response.length() > 0,
                 "GetComments endpoint not returning at least one object in JSONArray.");
@@ -34,6 +35,7 @@ public class TestComments extends BaseTest {
      */
     @Test
     public void TestGetCommentById() throws UnirestException {
+        wpLogger.info("Testing the Get Comment by Id endpoint.");
         JSONObject response = wpTC.getComment(getCommentId);
         JSONObject renderedContent = response.getJSONObject("content");
         Assert.assertNotNull(response,"GetComment endpoint returned a null object. Comment may not exist.");

@@ -20,6 +20,7 @@ public class TestTaxonomies extends BaseTest {
      */
     @Test
     public void TestGetTaxonomiesReturnsTaxonomies() throws UnirestException {
+        wpLogger.info("Testing the Get Taxonomies endpoint.");
         JSONArray response = wpTC.getTaxonomies();
         Assert.assertTrue(response.length() > 0,
                 "GetTaxonomies endpoint not returning at least one object in JSONArray.");
@@ -34,6 +35,7 @@ public class TestTaxonomies extends BaseTest {
      */
     @Test
     public void TestGetTaxonomyByTag() throws UnirestException {
+        wpLogger.info("Testing the Get Taxonomy by Tag endpoint.");
         JSONObject response = wpTC.getTaxonomy(getTaxonomyTag);
         String taxonomyName = response.getString("name");
         Assert.assertNotNull(response,"GetTaxonomy endpoint returned a null object. Taxonomy may not exist.");
