@@ -22,6 +22,8 @@ Dependencies included in the POM are:
 * org.json
 * com.mashape.unirest
 * org.testng
+* org.apache.maven.plugins (for Surefire, and exclusion to force use of log4j 2)
+* org.apache.log4j (version 2)
 
 ## Skills and tech I'm demonstrating here
 
@@ -31,6 +33,7 @@ Dependencies included in the POM are:
 * Using TestNG functionality to run the test suite, and to annotate test methods
 * Use of a POM file to set Maven dependencies and to run the test suite via Maven as well as TestNG
 * Testing against a site running as a Docker container
+* Use of Log4j to do basic logging
 
 ## Reference links
 * Misc-configs repo where I have my Docker Compose file for a test Wordpress site: https://github.com/annathepiper/misc-configs
