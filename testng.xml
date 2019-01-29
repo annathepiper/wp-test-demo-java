@@ -12,6 +12,7 @@
             <class name="TestMedia" />
             <class name="TestUsers" />
             <class name="TestPostTypes" />
+            <class name="TestPostStatuses" />
         </classes>
     </test>
 </suite>
