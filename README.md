@@ -42,13 +42,14 @@ If you'd like to try running this suite yourself, you will need to do the follow
 1. Install IntelliJ IDEA if you don't have it already.
 2. Install Docker if you don't have it already.
 3. Install git if you don't have it already.
-3. Create a local Wordpress instance with Docker (see my misc-configs repo for a wp-docker-compose.yml you can use as a reference, and modify as appropriate for your testing).
-4. Configure your local Wordpress with whatever test data you want to use. This may involve importing data of your own in from another site, or otherwise generating test posts, pages, etc. via whatever means you have available.
-6. Check out this repo on your own system.
-7. Import the project into your IntelliJ.
-8. In IntelliJ, use the testng.xml file to create a configuration you can use to run the test cases. It's a suite file, so you'll want to choose "Suite" in the configuration settings. All other settings can remain as default.
-9. Open the wp-test-demo.properties file and edit it as appropriate to reflect what test data you're using
-10. If you use my Postman collection and environment, you should also tweak the environment settings to reflect your test data. The environment file should match what you put into the properties file in IntelliJ.
+4. Edit your local hosts file to add aliases for wordpress.local to 127.0.0.1 (and phpmyadmin.local if you're using my PHPMyAdmin container)
+5. Create a local Wordpress instance with Docker (see my misc-configs repo for a wp-docker-compose.yml you can use as a reference, and modify as appropriate for your testing).
+6. Configure your local Wordpress with whatever test data you want to use. This may involve importing data of your own in from another site, or otherwise generating test posts, pages, etc. via whatever means you have available.
+7. Check out this repo on your own system.
+8. Import the project into your IntelliJ.
+9. In IntelliJ, use the testng.xml file to create a configuration you can use to run the test cases. It's a suite file, so you'll want to choose "Suite" in the configuration settings. All other settings can remain as default.
+10. Open the wp-test-demo.properties file and edit it as appropriate to reflect what test data you're using
+11. If you use my Postman collection and environment, you should also tweak the environment settings to reflect your test data. The environment file should match what you put into the properties file in IntelliJ.
 
 ### Running the code on a Windows 10 environment
 
