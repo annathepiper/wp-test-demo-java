@@ -35,7 +35,32 @@ Dependencies included in the POM are:
 * Testing against a site running as a Docker container
 * Use of Log4j to do basic logging
 
+## Running the code yourself
+
+If you'd like to try running this suite yourself, you will need to do the following:
+
+1. Install IntelliJ IDEA if you don't have it already.
+2. Install Docker if you don't have it already.
+3. Install git if you don't have it already.
+3. Create a local Wordpress instance with Docker (see my misc-configs repo for a wp-docker-compose.yml you can use as a reference, and modify as appropriate for your testing).
+4. Configure your local Wordpress with whatever test data you want to use. This may involve importing data of your own in from another site, or otherwise generating test posts, pages, etc. via whatever means you have available.
+6. Check out this repo on your own system.
+7. Import the project into your IntelliJ.
+8. In IntelliJ, use the testng.xml file to create a configuration you can use to run the test cases. It's a suite file, so you'll want to choose "Suite" in the configuration settings. All other settings can remain as default.
+9. Open the wp-test-demo.properties file and edit it as appropriate to reflect what test data you're using
+10. If you use my Postman collection and environment, you should also tweak the environment settings to reflect your test data. The environment file should match what you put into the properties file in IntelliJ.
+
+### Running the code on a Windows 10 environment
+
+If you want to run this demo on Windows 10, you may need to take additional steps depending on whether you're using the Windows 10 Linux subsystem. See the tutorial link I include in the reference links below.
+
+My Windows 10 setup for this demo includes running the Docker containers within the Linux subsystem. My Windows IntelliJ can't see the subsystem, so on this environment, I also installed Cygwin (with git) to do my code checkout in a place where IntelliJ could see it.
+
 ## Reference links
 * Misc-configs repo where I have my Docker Compose file for a test Wordpress site: https://github.com/annathepiper/misc-configs
 * Unirest: http://unirest.io/java.html
 * Wordpress REST API: https://developer.wordpress.org/rest-api/
+* Tutorial to Run Docker on Windows 10 With Linux Subsystem: https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly
+* Cygwin: http://www.cygwin.com/
+* Postman: https://www.getpostman.com/
+* IntelliJ: https://www.jetbrains.com/idea/
