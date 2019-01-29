@@ -9,7 +9,7 @@ import org.json.JSONObject;
  * WPTestClient
  * @author Angela Korra'ti
  *
- * Last updated 1/25/2019
+ * Last updated 1/29/2019
  * This class is the helper client the tests will use to interact with the Wordpress API endpoints. It uses Unirest
  * to do the actual GET, POST, etc. calls.
  */
@@ -38,6 +38,8 @@ public class WPTestClient {
     private String wpGetUserByIdTemplate = "/wp-json/wp/v2/users/%s";
     private String wpGetPostTypesTemplate = "/wp-json/wp/v2/types";
     private String wpGetPostTypeByTagTemplate = "/wp-json/wp/v2/types/%s";
+    private String wpGetPostStatusesTemplate = "/wp-json/wp/v2/statuses";
+    private String wpGetPostStatusByTagTemplate = "/wp-json/wp/v2/statuses/%s";
 
     /**
      * WPTestClient
@@ -238,6 +240,27 @@ public class WPTestClient {
      */
     public JSONObject getPostType(String postTypeTag) throws UnirestException {
         String uri = wpSite + String.format(wpGetPostTypeByTagTemplate, postTypeTag);
+        HttpResponse<JsonNode> jsonResponse = Unirest.get(uri).asJson();
+        return jsonResponse.getBody().getObject();
+    }
+
+    /**
+     * getPostStatuses
+     * Get a JSONArray of post types on the test Wordpress site.
+     */
+    public JSONArray getPostStatuses() throws UnirestException {
+        String uri = wpSite + wpGetPostStatusesTemplate;
+        HttpResponse<JsonNode> jsonResponse = Unirest.get(uri).asJson();
+        return jsonResponse.getBody().getArray();
+    }
+
+    /**
+     * getPostStatus
+     * Get a specific post status on the test Wordpress site by its tag.
+     * @return JSONObject containing the post status data
+     */
+    public JSONObject getPostStatus(String postStatusTag) throws UnirestException {
+        String uri = wpSite + String.format(wpGetPostStatusByTagTemplate, postStatusTag);
         HttpResponse<JsonNode> jsonResponse = Unirest.get(uri).asJson();
         return jsonResponse.getBody().getObject();
     }
