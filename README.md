@@ -7,11 +7,11 @@ In Phase 1 of this demo, I am working with the endpoints that provide publicly a
 
 ## Prerequisites
 
-To run this suite, I set up a test Wordpress site using Docker Compose. You can see the docker-compose.yml file I use to set up the containers on my misc-configs repo, here: https://github.com/annathepiper/misc-configs/blob/master/docker-compose.yml
+To run this suite, I set up a test Wordpress site using Docker Compose. You can see the docker-compose.yml file I use to set up the containers on my [misc-configs repo] (https://github.com/annathepiper/misc-configs/blob/master/docker-compose.yml). 
 
 I also add aliases for wordpress.local and phpmyadmin.local to my hosts file, so that those URLs will work as the automation runs.
 
-The test data I'm using is a copy of one of my live Wordpress sites (http://angelahighland.wordpress.com), which has provided me the items to fill in for my properties file.
+The test data I'm using is a copy of one of my [live Wordpress sites] (http://angelahighland.wordpress.com), which has provided me the items to fill in for my properties file.
 
 The main tool I'm using to run the suite is IntelliJ. The IML file for IntelliJ is included in this repo, as well as the pom.xml, as this is set up as a Maven project. I use the Unirest library to hit the Wordpress endpoints.
 
@@ -57,10 +57,10 @@ If you want to run this demo on Windows 10, you may need to take additional step
 My Windows 10 setup for this demo includes running the Docker containers within the Linux subsystem. My Windows IntelliJ can't see the subsystem, so on this environment, I also installed Cygwin (with git) to do my code checkout in a place where IntelliJ could see it.
 
 ## Reference links
-* Misc-configs repo where I have my Docker Compose file for a test Wordpress site: https://github.com/annathepiper/misc-configs
-* Unirest: http://unirest.io/java.html
-* Wordpress REST API: https://developer.wordpress.org/rest-api/
-* Tutorial to Run Docker on Windows 10 With Linux Subsystem: https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly
-* Cygwin: http://www.cygwin.com/
-* Postman: https://www.getpostman.com/
-* IntelliJ: https://www.jetbrains.com/idea/
+* [Misc-configs repo] (https://github.com/annathepiper/misc-configs) where I have my Docker Compose file for a test Wordpress site 
+* [Unirest] (http://unirest.io/java.html)
+* [Wordpress REST API] (https://developer.wordpress.org/rest-api/)
+* [Setting Up Docker for Windows and WSL to Work Flawlessly] (https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly)
+* [Cygwin] (http://www.cygwin.com/)
+* [Postman] (https://www.getpostman.com/)
+* [IntelliJ] (https://www.jetbrains.com/idea/)
