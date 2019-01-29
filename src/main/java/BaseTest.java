@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
  * BaseTest
  * @author Angela Korra'ti
  *
- * Last updated 1/25/2019
+ * Last updated 1/29/2019
  * This test class is the master class for the TestNG suite. Does necessary setup work for all classes.
  */
 public class BaseTest {
@@ -34,6 +34,8 @@ public class BaseTest {
     public String getUserName;
     public String getPostTypeTag;
     public String getPostTypeName;
+    public String getPostStatusTag;
+    public String getPostStatusName;
 
     // For logging purposes
     public final Logger wpLogger = LogManager.getLogger(this.getClass().getName());
@@ -67,6 +69,8 @@ public class BaseTest {
         getUserName = rb.getString("getUserName");
         getPostTypeTag = rb.getString("getPostTypeTag");
         getPostTypeName = rb.getString("getPostTypeName");
+        getPostStatusTag = rb.getString("getPostStatusTag");
+        getPostStatusName = rb.getString("getPostStatusName");
 
         // We also need a WPTestClient object for all the tests to use
         wpTC = new WPTestClient(protocol, host);
