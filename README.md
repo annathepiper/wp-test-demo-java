@@ -57,10 +57,10 @@ If you want to run this demo on Windows 10, you may need to take additional step
 My Windows 10 setup for this demo includes running the Docker containers within the Linux subsystem. My Windows IntelliJ can't see the subsystem, so on this environment, I also installed Cygwin (with git) to do my code checkout in a place where IntelliJ could see it.
 
 ## Reference links
-* [Misc-configs repo](https://github.com/annathepiper/misc-configs) where I have my Docker Compose file for a test Wordpress site 
-* [Unirest](http://unirest.io/java.html)
-* [Wordpress REST API](https://developer.wordpress.org/rest-api/)
-* [Setting Up Docker for Windows and WSL to Work Flawlessly](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly)
+* [Misc-configs repo](https://github.com/annathepiper/misc-configs) where I have my Docker Compose file for a test Wordpress site, and my Postman files 
+* [Unirest](http://unirest.io/java.html), the Java library I'm using to do the REST calls
+* [Wordpress REST API](https://developer.wordpress.org/rest-api/), reference source for the endpoints I use in this demo
+* [Setting Up Docker for Windows and WSL to Work Flawlessly](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly), tutorial I followed to set up Docker to run on the Windows 10 partition of my dev box
 * [Cygwin](http://www.cygwin.com/)
 * [Postman](https://www.getpostman.com/)
 * [IntelliJ](https://www.jetbrains.com/idea/)
