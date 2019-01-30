@@ -7,7 +7,7 @@ In Phase 1 of this demo, I am working with the endpoints that provide publicly a
 
 ## Prerequisites
 
-To run this suite, I set up a test Wordpress site using Docker Compose. You can see the docker-compose.yml file I use to set up the containers on my [misc-configs repo](https://github.com/annathepiper/misc-configs/blob/master/docker-compose.yml). 
+To run this suite, I set up a test Wordpress site using Docker Compose. You can see the wp-docker-compose.yml file I use to set up the containers on my [misc-configs repo](https://github.com/annathepiper/misc-configs/blob/master/docker-compose.yml). 
 
 I also add aliases for wordpress.local and phpmyadmin.local to my hosts file, so that those URLs will work as the automation runs.
 
