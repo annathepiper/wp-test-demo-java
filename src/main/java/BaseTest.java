@@ -7,47 +7,47 @@ import org.apache.logging.log4j.Logger;
  * BaseTest
  * @author Angela Korra'ti
  *
- * Last updated 1/29/2019
+ * Last updated 2/14/2019
  * This test class is the master class for the TestNG suite. Does necessary setup work for all classes.
  */
-public class BaseTest {
+public abstract class BaseTest {
     // Use these for the WP Test Client
-    public String protocol;
-    public String host;
+    private String protocol;
+    private String host;
 
     // Use these for test default values
-    public String getPostId;
-    public String getPostTitle;
-    public String getCategoryId;
-    public String getCategoryName;
-    public String getTagId;
-    public String getTagName;
-    public String getPageId;
-    public String getPageTitle;
-    public String getCommentId;
-    public String getCommentContent;
-    public String getTaxonomyTag;
-    public String getTaxonomyName;
-    public String getMediaId;
-    public String getMediaTitle;
-    public String getUserId;
-    public String getUserName;
-    public String getPostTypeTag;
-    public String getPostTypeName;
-    public String getPostStatusTag;
-    public String getPostStatusName;
+    protected String getPostId;
+    protected String getPostTitle;
+    protected String getCategoryId;
+    protected String getCategoryName;
+    protected String getTagId;
+    protected String getTagName;
+    protected String getPageId;
+    protected String getPageTitle;
+    protected String getCommentId;
+    protected String getCommentContent;
+    protected String getTaxonomyTag;
+    protected String getTaxonomyName;
+    protected String getMediaId;
+    protected String getMediaTitle;
+    protected String getUserId;
+    protected String getUserName;
+    protected String getPostTypeTag;
+    protected String getPostTypeName;
+    protected String getPostStatusTag;
+    protected String getPostStatusName;
 
     // For logging purposes
-    public final Logger wpLogger = LogManager.getLogger(this.getClass().getName());
+    protected final Logger wpLogger = LogManager.getLogger(this.getClass().getName());
 
     // Resource bundle we're using to pull all the property strings out of
     private static ResourceBundle rb = ResourceBundle.getBundle("wp-test-demo");
 
     // For generating the instance of the WP Test Client
-    public WPTestClient wpTC;
+    protected WPTestClient wpTC;
 
     @BeforeClass
-    public void setup() {
+    protected void setup() {
         // Get the needed properties out of the file
         protocol = rb.getString("protocol");
         host = rb.getString("host");
