@@ -9,7 +9,7 @@ import org.json.JSONObject;
  * WPTestClient
  * @author Angela Korra'ti
  *
- * Last updated 1/29/2019
+ * Last updated 2/18/2019
  * This class is the helper client the tests will use to interact with the Wordpress API endpoints. It uses Unirest
  * to do the actual GET, POST, etc. calls.
  */
@@ -58,6 +58,8 @@ public class WPTestClient {
     /**
      * getPosts
      * Get a JSONArray of posts on the test Wordpress site.
+     * @return JSONArray from the Get call
+     * @throws UnirestException
      */
     public JSONArray getPosts() throws UnirestException {
         String uri = wpSite + wpGetPostsTemplate;
@@ -68,7 +70,9 @@ public class WPTestClient {
     /**
      * getPost
      * Get a specific post on the test Wordpress site by post ID.
-     * @return JSONObject containing the post data
+     * @param postId: String containing the post ID to work with
+     * @return JSONObject from the Get call
+     * @throws UnirestException
      */
     public JSONObject getPost(String postId) throws UnirestException {
         String uri = wpSite + String.format(wpGetPostByIdTemplate, postId);
@@ -79,6 +83,8 @@ public class WPTestClient {
     /**
      * getCategories
      * Get a JSONArray of categories on the test Wordpress site.
+     * @return JSONArray from the Get call
+     * @throws UnirestException
      */
     public JSONArray getCategories() throws UnirestException {
         String uri = wpSite + wpGetCategoriesTemplate;
@@ -89,7 +95,9 @@ public class WPTestClient {
     /**
      * getCategory
      * Get a specific category on the test Wordpress site by category ID.
-     * @return JSONObject containing the category data
+     * @param categoryId: String containing the category ID to work with
+     * @return JSONObject from the Get call
+     * @throws UnirestException
      */
     public JSONObject getCategory(String categoryId) throws UnirestException {
         String uri = wpSite + String.format(wpGetCategoryByIdTemplate, categoryId);
@@ -100,6 +108,8 @@ public class WPTestClient {
     /**
      * getTags
      * Get a JSONArray of tags on the test Wordpress site.
+     * @return JSONArray from the Get call
+     * @throws UnirestException
      */
     public JSONArray getTags() throws UnirestException {
         String uri = wpSite + wpGetTagsTemplate;
@@ -110,7 +120,9 @@ public class WPTestClient {
     /**
      * getTag
      * Get a specific tag on the test Wordpress site by tag ID.
-     * @return JSONObject containing the tag data
+     * @param tagId: String containing the tag ID to work with
+     * @return JSONObject from the Get call
+     * @throws UnirestException
      */
     public JSONObject getTag(String tagId) throws UnirestException {
         String uri = wpSite + String.format(wpGetTagByIdTemplate, tagId);
@@ -121,6 +133,8 @@ public class WPTestClient {
     /**
      * getPages
      * Get a JSONArray of pages on the test Wordpress site.
+     * @return JSONArray from the Get call
+     * @throws UnirestException
      */
     public JSONArray getPages() throws UnirestException {
         String uri = wpSite + wpGetPagesTemplate;
@@ -131,7 +145,9 @@ public class WPTestClient {
     /**
      * getPage
      * Get a specific page on the test Wordpress site by page ID.
+     * @param pageId
      * @return JSONObject containing the page data
+     * @throws UnirestException
      */
     public JSONObject getPage(String pageId) throws UnirestException {
         String uri = wpSite + String.format(wpGetPageByIdTemplate, pageId);
@@ -142,6 +158,8 @@ public class WPTestClient {
     /**
      * getComments
      * Get a JSONArray of comments on the test Wordpress site.
+     * @return JSONArray from the Get call
+     * @throws UnirestException
      */
     public JSONArray getComments() throws UnirestException {
         String uri = wpSite + wpGetCommentsTemplate;
@@ -152,7 +170,9 @@ public class WPTestClient {
     /**
      * getComment
      * Get a specific comment on the test Wordpress site by comment ID.
+     * @param commentId: String containing the comment ID to work with
      * @return JSONObject containing the comment data
+     * @throws UnirestException
      */
     public JSONObject getComment(String commentId) throws UnirestException {
         String uri = wpSite + String.format(wpGetCommentByIdTemplate, commentId);
@@ -163,6 +183,8 @@ public class WPTestClient {
     /**
      * getTaxonomies
      * Get a JSONArray of taxonomies on the test Wordpress site.
+     * @return JSONArray from the Get call
+     * @throws UnirestException
      */
     public JSONArray getTaxonomies() throws UnirestException {
         String uri = wpSite + wpGetTaxonomiesTemplate;
@@ -173,7 +195,9 @@ public class WPTestClient {
     /**
      * getTaxonomy
      * Get a specific taxonomy on the test Wordpress site by its tag.
+     * @param taxonomyTag: String containing the tag for the taxonomy to work with
      * @return JSONObject containing the taxonomy data
+     * @throws UnirestException
      */
     public JSONObject getTaxonomy(String taxonomyTag) throws UnirestException {
         String uri = wpSite + String.format(wpGetTaxonomyByTagTemplate, taxonomyTag);
@@ -184,6 +208,8 @@ public class WPTestClient {
     /**
      * getMedia
      * Get a JSONArray of media on the test Wordpress site.
+     * @return JSONArray from the Get call
+     * @throws UnirestException
      */
     public JSONArray getMedia() throws UnirestException {
         String uri = wpSite + wpGetMediaTemplate;
@@ -194,7 +220,9 @@ public class WPTestClient {
     /**
      * getMediaById
      * Get a specific media item on the test Wordpress site by its ID.
+     * @param mediaId: String containing the ID of the media item to work with
      * @return JSONObject containing the media data
+     * @throws UnirestException
      */
     public JSONObject getMediaById(String mediaId) throws UnirestException {
         String uri = wpSite + String.format(wpGetMediaByIdTemplate, mediaId);
@@ -205,6 +233,8 @@ public class WPTestClient {
     /**
      * getUsers
      * Get a JSONArray of users on the test Wordpress site.
+     * @return JSONArray from the Get call
+     * @throws UnirestException
      */
     public JSONArray getUsers() throws UnirestException {
         String uri = wpSite + wpGetUsersTemplate;
@@ -215,7 +245,9 @@ public class WPTestClient {
     /**
      * getUserById
      * Get a specific user on the test Wordpress site by their ID.
-     * @return JSONObject containing the media data
+     * @param userId: String containing the ID of the user to work with
+     * @return JSONObject containing the user data
+     * @throws UnirestException
      */
     public JSONObject getUserById(String userId) throws UnirestException {
         String uri = wpSite + String.format(wpGetUserByIdTemplate, userId);
@@ -226,6 +258,8 @@ public class WPTestClient {
     /**
      * getPostTypes
      * Get a JSONArray of post types on the test Wordpress site.
+     * @return JSONArray from the Get Call
+     * @throws UnirestException
      */
     public JSONArray getPostTypes() throws UnirestException {
         String uri = wpSite + wpGetPostTypesTemplate;
@@ -236,7 +270,9 @@ public class WPTestClient {
     /**
      * getPostType
      * Get a specific post type on the test Wordpress site by its tag.
+     * @param postTypeTag: String containing the tag for the post type to work with
      * @return JSONObject containing the post type data
+     * @throws UnirestException
      */
     public JSONObject getPostType(String postTypeTag) throws UnirestException {
         String uri = wpSite + String.format(wpGetPostTypeByTagTemplate, postTypeTag);
@@ -247,6 +283,8 @@ public class WPTestClient {
     /**
      * getPostStatuses
      * Get a JSONArray of post types on the test Wordpress site.
+     * @return JSONArray from the Get call
+     * @throws UnirestException
      */
     public JSONArray getPostStatuses() throws UnirestException {
         String uri = wpSite + wpGetPostStatusesTemplate;
@@ -257,7 +295,9 @@ public class WPTestClient {
     /**
      * getPostStatus
      * Get a specific post status on the test Wordpress site by its tag.
+     * @param postStatusTag: String containing the tag for the post status to work with
      * @return JSONObject containing the post status data
+     * @throws UnirestException
      */
     public JSONObject getPostStatus(String postStatusTag) throws UnirestException {
         String uri = wpSite + String.format(wpGetPostStatusByTagTemplate, postStatusTag);
