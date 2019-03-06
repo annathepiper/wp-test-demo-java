@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
  * BaseTest
  * @author Angela Korra'ti
  *
- * Last updated 2/14/2019
+ * Last updated 3/6/2019
  * This test class is the master class for the TestNG suite. Does necessary setup work for all classes.
  */
 public abstract class BaseTest {
@@ -63,7 +63,12 @@ public abstract class BaseTest {
         getCommentContent = rb.getString("getCommentContent");
         getTaxonomyTag = rb.getString("getTaxonomyTag");
         getTaxonomyName = rb.getString("getTaxonomyName");
-        getMediaId = rb.getString("getMediaId");
+        if (System.getProperty("os.name").startsWith("Windows")) {
+            getMediaId = rb.getString("getMediaIdWindows");
+        }
+        else {
+            getMediaId = rb.getString("getMediaId");
+        }
         getMediaTitle = rb.getString("getMediaTitle");
         getUserId = rb.getString("getUserId");
         getUserName = rb.getString("getUserName");
