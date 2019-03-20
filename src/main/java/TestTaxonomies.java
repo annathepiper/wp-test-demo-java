@@ -15,15 +15,16 @@ public class TestTaxonomies extends BaseTest {
 
     /**
      * TestGetTaxonomiesReturnsTaxonomies
-     * Verify that the GetTaxonomies endpoint actually returns data. There should be a JSON array of length > 0.
+     * Verify that the GetTaxonomies endpoint actually returns data. There should be a JSON object with two
+     * items in it.
      * @throws UnirestException
      */
     @Test
     public void TestGetTaxonomiesReturnsTaxonomies() throws UnirestException {
         wpLogger.info("Testing the Get Taxonomies endpoint.");
-        JSONArray response = wpTC.getTaxonomies();
-        Assert.assertTrue(response.length() > 0,
-                "GetTaxonomies endpoint not returning at least one object in JSONArray.");
+        JSONObject response = wpTC.getTaxonomies();
+        Assert.assertTrue(response.length() == 2,
+                "GetTaxonomies endpoint not returning expected JSONObject length.");
         Assert.assertNotNull(response,"GetTaxonomies endpoint returned a null response.");
     }
 

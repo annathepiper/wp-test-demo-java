@@ -9,7 +9,7 @@ import org.json.JSONObject;
  * WPTestClient
  * @author Angela Korra'ti
  *
- * Last updated 2/18/2019
+ * Last updated 3/20/2019
  * This class is the helper client the tests will use to interact with the WordPress API endpoints. It uses Unirest
  * to do the actual GET, POST, etc. calls.
  */
@@ -155,14 +155,14 @@ class WPTestClient {
 
     /**
      * getTaxonomies
-     * Get a JSONArray of taxonomies on the test WordPress site.
-     * @return JSONArray from the Get call
+     * Get a JSONObject of taxonomies on the test WordPress site.
+     * @return JSONObject from the Get call
      * @throws UnirestException: If the Get call throws an error
      */
-    JSONArray getTaxonomies() throws UnirestException {
+    JSONObject getTaxonomies() throws UnirestException {
         String uri = wpSite + "/wp-json/wp/v2/taxonomies";
         HttpResponse<JsonNode> jsonResponse = Unirest.get(uri).asJson();
-        return jsonResponse.getBody().getArray();
+        return jsonResponse.getBody().getObject();
     }
 
     /**
