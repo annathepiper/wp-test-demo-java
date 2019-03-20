@@ -8,21 +8,21 @@ import org.testng.annotations.Test;
  * TestPostTypes
  * @author Angela Korra'ti
  *
- * Last updated 1/25/2019
+ * Last updated 3/20/2019
  * This class contains test cases related to post types on the Wordpress test site.
  */
 public class TestPostTypes extends BaseTest {
 
     /**
      * TestGetPostTypesReturnsPostTypes
-     * Verify that the GetPostTypes endpoint actually returns data. There should be a JSON array of length > 0.
+     * Verify that the GetPostTypes endpoint actually returns data. There should be a JSON object of length == 4.
      * @throws UnirestException
      */
     @Test
     public void TestGetPostTypesReturnsPostTypes() throws UnirestException {
         wpLogger.info("Testing the Get Post Types endpoint.");
-        JSONArray response = wpTC.getPostTypes();
-        Assert.assertTrue(response.length() > 0,
+        JSONObject response = wpTC.getPostTypes();
+        Assert.assertEquals(response.length(), 4,
                 "GetPostTypes endpoint not returning at least one object in JSONArray.");
         Assert.assertNotNull(response,"GetPostTypes endpoint returned a null response.");
     }

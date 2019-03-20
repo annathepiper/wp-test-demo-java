@@ -230,14 +230,14 @@ class WPTestClient {
 
     /**
      * getPostTypes
-     * Get a JSONArray of post types on the test WordPress site.
-     * @return JSONArray from the Get Call
+     * Get a JSONObject of post types on the test WordPress site.
+     * @return JSONObject from the Get Call
      * @throws UnirestException: If the Get call throws an error
      */
-    JSONArray getPostTypes() throws UnirestException {
+    JSONObject getPostTypes() throws UnirestException {
         String uri = wpSite + "/wp-json/wp/v2/types";
         HttpResponse<JsonNode> jsonResponse = Unirest.get(uri).asJson();
-        return jsonResponse.getBody().getArray();
+        return jsonResponse.getBody().getObject();
     }
 
     /**
