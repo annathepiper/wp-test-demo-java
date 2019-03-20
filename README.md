@@ -7,11 +7,11 @@ In Phase 1 of this demo, I am working with the endpoints that provide publicly a
 
 ## Prerequisites
 
-To run this suite, I set up a test Wordpress site using Docker Compose. You can see the wp-docker-compose.yml file I use to set up the containers on my [misc-configs repo](https://github.com/annathepiper/misc-configs/blob/master/docker-compose.yml). 
+To run this suite, I set up a test Wordpress site using Docker Compose. You can see the [wp-docker-compose.yml file](https://github.com/annathepiper/misc-configs/blob/master/docker-compose.yml) I use to set up the containers on my misc-configs repo. 
 
 I also add aliases for wordpress.local and phpmyadmin.local to my hosts file, so that those URLs will work as the automation runs.
 
-The test data I'm using is a copy of one of my [live Wordpress sites](http://angelahighland.wordpress.com), which has provided me the items to fill in for my properties file.
+The test data I'm using is a copy of one of my [live Wordpress sites](http://angelahighland.info), which has provided me the items to fill in for my properties file.
 
 The main tool I'm using to run the suite is IntelliJ. The IML file for IntelliJ is included in this repo, as well as the pom.xml, as this is set up as a Maven project. I use the Unirest library to hit the Wordpress endpoints.
 
