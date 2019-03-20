@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
  * TestPostStatuses
  * @author Angela Korra'ti
  *
- * Last updated 1/29/2019
+ * Last updated 3/20/2019
  * This class contains test cases related to post statuses on the Wordpress test site.
  */
 public class TestPostStatuses extends BaseTest {
@@ -21,8 +21,8 @@ public class TestPostStatuses extends BaseTest {
     @Test
     public void TestGetPostStatusesReturnsPostStatuses() throws UnirestException {
         wpLogger.info("Testing the Get Post Statuses endpoint.");
-        JSONArray response = wpTC.getPostStatuses();
-        Assert.assertTrue(response.length() > 0,
+        JSONObject response = wpTC.getPostStatuses();
+        Assert.assertEquals(response.length(), 1,
                 "GetPostStatuses endpoint not returning at least one object in JSONArray.");
         Assert.assertNotNull(response,"GetPostStatuses endpoint returned a null response.");
     }
