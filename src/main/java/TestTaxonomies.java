@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
  * TestTaxonomies
  * @author Angela Korra'ti
  *
- * Last updated 1/25/2019
+ * Last updated 3/20/2019
  * This class contains test cases related to taxonomies on the Wordpress test site.
  */
 public class TestTaxonomies extends BaseTest {
@@ -23,7 +23,7 @@ public class TestTaxonomies extends BaseTest {
     public void TestGetTaxonomiesReturnsTaxonomies() throws UnirestException {
         wpLogger.info("Testing the Get Taxonomies endpoint.");
         JSONObject response = wpTC.getTaxonomies();
-        Assert.assertTrue(response.length() == 2,
+        Assert.assertEquals(response.length(), 2,
                 "GetTaxonomies endpoint not returning expected JSONObject length.");
         Assert.assertNotNull(response,"GetTaxonomies endpoint returned a null response.");
     }
