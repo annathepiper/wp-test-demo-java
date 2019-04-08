@@ -11,35 +11,32 @@ import org.apache.logging.log4j.Logger;
  * This test class is the master class for the TestNG suite. Does necessary setup work for all classes.
  */
 public abstract class BaseTest {
-    // Use these for the WP Test Client
-    private String protocol;
-    private String host;
-
     // Use these for test default values
-    protected String getPostId;
-    protected String getPostTitle;
-    protected String getPostNonExistentId;
-    protected String getPostNonExistentMessage;
-    protected String getPostInvalidId;
-    protected String getPostInvalidMessage;
-    protected String getCategoryId;
-    protected String getCategoryName;
-    protected String getTagId;
-    protected String getTagName;
-    protected String getPageId;
-    protected String getPageTitle;
-    protected String getCommentId;
-    protected String getCommentContent;
-    protected String getTaxonomyTag;
-    protected String getTaxonomyName;
-    protected String getMediaId;
-    protected String getMediaTitle;
-    protected String getUserId;
-    protected String getUserName;
-    protected String getPostTypeTag;
-    protected String getPostTypeName;
-    protected String getPostStatusTag;
-    protected String getPostStatusName;
+    String getPostId;
+    String getPostTitle;
+    String getPostNonExistentId;
+    String getPostNonExistentMessage;
+    String getPostNonExistentCode;
+    String getPostInvalidId;
+    String getPostInvalidMessage;
+    String getCategoryId;
+    String getCategoryName;
+    String getTagId;
+    String getTagName;
+    String getPageId;
+    String getPageTitle;
+    String getCommentId;
+    String getCommentContent;
+    String getTaxonomyTag;
+    String getTaxonomyName;
+    String getMediaId;
+    String getMediaTitle;
+    String getUserId;
+    String getUserName;
+    String getPostTypeTag;
+    String getPostTypeName;
+    String getPostStatusTag;
+    String getPostStatusName;
 
     // For logging purposes
     protected final Logger wpLogger = LogManager.getLogger(this.getClass().getName());
@@ -53,12 +50,13 @@ public abstract class BaseTest {
     @BeforeClass
     protected void setup() {
         // Get the needed properties out of the file
-        protocol = rb.getString("protocol");
-        host = rb.getString("host");
+        String protocol = rb.getString("protocol");
+        String host = rb.getString("host");
         getPostId = rb.getString("getPostId");
         getPostTitle = rb.getString("getPostTitle");
         getPostNonExistentId = rb.getString("getPostNonExistentId");
         getPostNonExistentMessage = rb.getString("getPostNonExistentMessage");
+        getPostNonExistentCode=rb.getString("getPostNonExistentCode");
         getPostInvalidId = rb.getString("getPostInvalidId");
         getPostInvalidMessage=rb.getString("getPostInvalidMessage");
         getCategoryId = rb.getString("getCategoryId");
