@@ -20,7 +20,7 @@ public class TestPosts extends BaseTest {
      */
     @Test
     public void TestGetPostsReturnsPosts() throws UnirestException {
-        wpLogger.info("Testing the Get Posts endpoint.");
+        wpLogger.info("Testing that the Get Posts endpoint returns posts.");
         JSONArray response = wpTC.getPosts();
         Assert.assertTrue(response.length() > 0, "GetPosts endpoint not returning at least one object in JSONArray.");
         Assert.assertNotNull(response,"GetPosts endpoint returned a null response.");
@@ -34,14 +34,14 @@ public class TestPosts extends BaseTest {
      */
     @Test
     public void TestGetPostById() throws UnirestException {
-        wpLogger.info("Testing the Get Posts by Id endpoint.");
+        wpLogger.info("Testing that the Get Post by Id endpoint returns a post for a valid Id.");
         JSONObject response = wpTC.getPost(getPostId);
         JSONObject renderedTitle = response.getJSONObject("title");
-        Assert.assertNotNull(response,"GetPosts endpoint returned a null object. Post may not exist.");
+        Assert.assertNotNull(response,"Get Post by Id endpoint returned a null object. Post may not exist.");
         Assert.assertEquals(response.get("id").toString(), getPostId,
-                "GetPosts endpoint didn't return correct ID number.");
+                "Get Post by Id endpoint didn't return correct ID number.");
         Assert.assertEquals(renderedTitle.get("rendered"), getPostTitle,
-                "Retrieved post from GetPosts endpoint does not have expected title.");
+                "Retrieved post from Get Post by Id endpoint does not have expected title.");
     }
 
     /**
@@ -52,7 +52,7 @@ public class TestPosts extends BaseTest {
      */
     @Test
     public void TestGetPostIdThatDoesNotExist() throws UnirestException {
-        wpLogger.info("Testing giving a post ID that doesn't exist to the Get Posts by Id endpoint.");
+        wpLogger.info("Testing giving a post ID that doesn't exist to the Get Post by Id endpoint.");
         JSONObject response = wpTC.getPost(getPostNonExistentId);
         Assert.assertEquals(response.get("code"), getPostNonExistentCode,
                 "Get Post by Id endpoint thinks this post ID actually exists.");
@@ -71,11 +71,11 @@ public class TestPosts extends BaseTest {
      */
     @Test
     public void TestGetPostIdBadId() throws UnirestException {
-        wpLogger.info("Testing giving a bad post ID to the Get Posts by Id endpoint.");
-        JSONObject response = wpTC.getPost(getPostInvalidId);
-        Assert.assertEquals(response.get("code"), "rest_no_route",
+        wpLogger.info("Testing giving a bad post ID to the Get Post by Id endpoint.");
+        JSONObject response = wpTC.getPost(getInvalidId);
+        Assert.assertEquals(response.get("code"), getInvalidCode,
                 "Get Post by Id endpoint thinks this post ID is actually valid.");
-        Assert.assertEquals(response.get("message"), getPostInvalidMessage,
+        Assert.assertEquals(response.get("message"), getInvalidMessage,
                 "Get Post by Id endpoint didn't throw the expected error message.");
         JSONObject responseData = response.getJSONObject("data");
         Assert.assertNotNull(responseData, "Get Post by Id endpoint didn't include data object in response.");
