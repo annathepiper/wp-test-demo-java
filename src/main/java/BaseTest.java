@@ -27,6 +27,9 @@ public abstract class BaseTest {
     String getCategoryNonExistentCode;
     String getTagId;
     String getTagName;
+    String getTagNonExistentId;
+    String getTagNonExistentMessage;
+    String getTagNonExistentCode;
     String getPageId;
     String getPageTitle;
     String getCommentId;
@@ -71,6 +74,9 @@ public abstract class BaseTest {
         getCategoryNonExistentCode=rb.getString("getCategoryNonExistentCode");
         getTagId = rb.getString("getTagId");
         getTagName = rb.getString("getTagName");
+        getTagNonExistentId = rb.getString("getTagNonExistentId");
+        getTagNonExistentMessage = rb.getString("getTagNonExistentMessage");
+        getTagNonExistentCode=rb.getString("getTagNonExistentCode");
         getPageId = rb.getString("getPageId");
         getPageTitle = rb.getString("getPageTitle");
         getCommentId = rb.getString("getCommentId");
