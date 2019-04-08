@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
  * TestPosts
  * @author Angela Korra'ti
  *
- * Last updated 1/25/2019
+ * Last updated 4/8/2019
  * This class contains test cases related to posts on the Wordpress test site.
  */
 public class TestPosts extends BaseTest {
@@ -42,5 +42,44 @@ public class TestPosts extends BaseTest {
                 "GetPosts endpoint didn't return correct ID number.");
         Assert.assertEquals(renderedTitle.get("rendered"), getPostTitle,
                 "Retrieved post from GetPosts endpoint does not have expected title.");
+    }
+
+    /**
+     * TestGetPostIdThatDoesNotExist
+     * Verify that the Get Post by Id endpoint exhibits expected error behavior if you throw it a post ID that
+     * doesn't actually exist.
+     * @throws UnirestException
+     */
+    @Test
+    public void TestGetPostIdThatDoesNotExist() throws UnirestException {
+        wpLogger.info("Testing giving a post ID that doesn't exist to the Get Posts by Id endpoint.");
+        JSONObject response = wpTC.getPost(getPostNonExistentId);
+        Assert.assertEquals(response.get("code"), "rest_post_invalid_id",
+                "Get Post by Id endpoint thinks this post ID actually exists.");
+        Assert.assertEquals(response.get("message"), getPostNonExistentMessage,
+                "Get Post by Id endpoint didn't throw the expected error message.");
+        JSONObject responseData = response.getJSONObject("data");
+        Assert.assertNotNull(responseData, "Get Post by Id endpoint didn't include data object in response.");
+        Assert.assertEquals(responseData.get("status"), 404,
+                "Get Post by Id endpoint didn't return expected error code.");
+    }
+
+    /**
+     * TestGetPostIdBadId
+     * Verify that the Get Post by Id endpoint throws expected error behavior if given invalid data for its post ID.
+     * @throws UnirestException
+     */
+    @Test
+    public void TestGetPostIdBadId() throws UnirestException {
+        wpLogger.info("Testing giving a bad post ID to the Get Posts by Id endpoint.");
+        JSONObject response = wpTC.getPost(getPostInvalidId);
+        Assert.assertEquals(response.get("code"), "rest_no_route",
+                "Get Post by Id endpoint thinks this post ID is actually valid.");
+        Assert.assertEquals(response.get("message"), getPostInvalidMessage,
+                "Get Post by Id endpoint didn't throw the expected error message.");
+        JSONObject responseData = response.getJSONObject("data");
+        Assert.assertNotNull(responseData, "Get Post by Id endpoint didn't include data object in response.");
+        Assert.assertEquals(responseData.get("status"), 404,
+                "Get Post by Id endpoint didn't return expected error code.");
     }
 }
