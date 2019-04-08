@@ -16,7 +16,7 @@ public class TestPosts extends BaseTest {
     /**
      * TestGetPostsReturnsPosts
      * Verify that the GetPosts endpoint actually returns data. There should be a JSON array of length > 0.
-     * @throws UnirestException
+     * @throws UnirestException if the Unirest call goes wrong somehow
      */
     @Test
     public void TestGetPostsReturnsPosts() throws UnirestException {
@@ -30,7 +30,7 @@ public class TestPosts extends BaseTest {
      * TestGetPostById
      * Verify that you can get a post by a specific ID off the GetPosts endpoint. Uses a test ID set in the
      * properties file and retrieved by the BaseTest class.
-     * @throws UnirestException
+     * @throws UnirestException if the Unirest call goes wrong somehow
      */
     @Test
     public void TestGetPostById() throws UnirestException {
@@ -48,26 +48,26 @@ public class TestPosts extends BaseTest {
      * TestGetPostIdThatDoesNotExist
      * Verify that the Get Post by Id endpoint exhibits expected error behavior if you throw it a post ID that
      * doesn't actually exist.
-     * @throws UnirestException
+     * @throws UnirestException if the Unirest call goes wrong somehow
      */
     @Test
     public void TestGetPostIdThatDoesNotExist() throws UnirestException {
         wpLogger.info("Testing giving a post ID that doesn't exist to the Get Posts by Id endpoint.");
         JSONObject response = wpTC.getPost(getPostNonExistentId);
-        Assert.assertEquals(response.get("code"), "rest_post_invalid_id",
+        Assert.assertEquals(response.get("code"), getPostNonExistentCode,
                 "Get Post by Id endpoint thinks this post ID actually exists.");
         Assert.assertEquals(response.get("message"), getPostNonExistentMessage,
                 "Get Post by Id endpoint didn't throw the expected error message.");
         JSONObject responseData = response.getJSONObject("data");
         Assert.assertNotNull(responseData, "Get Post by Id endpoint didn't include data object in response.");
-        Assert.assertEquals(responseData.get("status"), 404,
+        Assert.assertEquals(responseData.get("status").toString(), "404",
                 "Get Post by Id endpoint didn't return expected error code.");
     }
 
     /**
      * TestGetPostIdBadId
      * Verify that the Get Post by Id endpoint throws expected error behavior if given invalid data for its post ID.
-     * @throws UnirestException
+     * @throws UnirestException if the Unirest call goes wrong somehow
      */
     @Test
     public void TestGetPostIdBadId() throws UnirestException {
@@ -79,7 +79,7 @@ public class TestPosts extends BaseTest {
                 "Get Post by Id endpoint didn't throw the expected error message.");
         JSONObject responseData = response.getJSONObject("data");
         Assert.assertNotNull(responseData, "Get Post by Id endpoint didn't include data object in response.");
-        Assert.assertEquals(responseData.get("status"), 404,
+        Assert.assertEquals(responseData.get("status").toString(), "404",
                 "Get Post by Id endpoint didn't return expected error code.");
     }
 }
