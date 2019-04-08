@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
  * BaseTest
  * @author Angela Korra'ti
  *
- * Last updated 3/6/2019
+ * Last updated 4/8/2019
  * This test class is the master class for the TestNG suite. Does necessary setup work for all classes.
  */
 public abstract class BaseTest {
@@ -18,6 +18,10 @@ public abstract class BaseTest {
     // Use these for test default values
     protected String getPostId;
     protected String getPostTitle;
+    protected String getPostNonExistentId;
+    protected String getPostNonExistentMessage;
+    protected String getPostInvalidId;
+    protected String getPostInvalidMessage;
     protected String getCategoryId;
     protected String getCategoryName;
     protected String getTagId;
@@ -53,6 +57,10 @@ public abstract class BaseTest {
         host = rb.getString("host");
         getPostId = rb.getString("getPostId");
         getPostTitle = rb.getString("getPostTitle");
+        getPostNonExistentId = rb.getString("getPostNonExistentId");
+        getPostNonExistentMessage = rb.getString("getPostNonExistentMessage");
+        getPostInvalidId = rb.getString("getPostInvalidId");
+        getPostInvalidMessage=rb.getString("getPostInvalidMessage");
         getCategoryId = rb.getString("getCategoryId");
         getCategoryName = rb.getString("getCategoryName");
         getTagId = rb.getString("getTagId");
