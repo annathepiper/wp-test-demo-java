@@ -54,7 +54,7 @@ public class TestCategories extends BaseTest {
     @Test
     public void TestGetCategoryIdThatDoesNotExist() throws UnirestException {
         wpLogger.info("Testing giving a category ID that doesn't exist to the Get Category by Id endpoint.");
-        JSONObject response = wpTC.getCategory(getTermNonExistentId);
+        JSONObject response = wpTC.getCategory(getNonExistentId);
         wpTestLib.VerifyResponseItemDoesNotExist(response, getTermNonExistentCode, getTermNonExistentMessage);
     }
 

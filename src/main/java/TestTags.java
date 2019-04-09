@@ -54,7 +54,7 @@ public class TestTags extends BaseTest {
     @Test
     public void TestGetTagIdThatDoesNotExist() throws UnirestException {
         wpLogger.info("Testing giving a tag ID that doesn't exist to the Get Tag by Id endpoint.");
-        JSONObject response = wpTC.getTag(getTermNonExistentId);
+        JSONObject response = wpTC.getTag(getNonExistentId);
         wpTestLib.VerifyResponseItemDoesNotExist(response, getTermNonExistentCode, getTermNonExistentMessage);
     }
 

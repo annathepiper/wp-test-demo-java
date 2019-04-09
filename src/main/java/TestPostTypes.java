@@ -53,7 +53,7 @@ public class TestPostTypes extends BaseTest {
     @Test
     public void TestGetPostTypeTagThatDoesNotExist() throws UnirestException {
         wpLogger.info("Testing giving a post type tag that doesn't exist to the Get Post Type by Tag endpoint.");
-        JSONObject response = wpTC.getPostType(getPostTypeNonExistentTag);
+        JSONObject response = wpTC.getPostType(getNonExistentTag);
         wpTestLib.VerifyResponseItemDoesNotExist(response, getPostTypeNonExistentCode, getPostTypeNonExistentMessage);
     }
 
@@ -66,7 +66,7 @@ public class TestPostTypes extends BaseTest {
     @Test
     public void TestGetPostTypeBadTag() throws UnirestException {
         wpLogger.info("Testing giving a bad post type tag to the Get Post Type by Tag endpoint.");
-        JSONObject response = wpTC.getPostType(getPostTypeInvalidTag);
+        JSONObject response = wpTC.getPostType(getInvalidTag);
         wpTestLib.VerifyResponseItemIsInvalid(response, getInvalidCode, getInvalidMessage);
     }
 

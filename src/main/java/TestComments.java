@@ -54,7 +54,7 @@ public class TestComments extends BaseTest {
     @Test
     public void TestGetCommentIdThatDoesNotExist() throws UnirestException {
         wpLogger.info("Testing giving a comment ID that doesn't exist to the Get Comment by Id endpoint.");
-        JSONObject response = wpTC.getComment(getCommentNonExistentId);
+        JSONObject response = wpTC.getComment(getNonExistentId);
         wpTestLib.VerifyResponseItemDoesNotExist(response, getCommentNonExistentCode, getCommentNonExistentMessage);
     }
 

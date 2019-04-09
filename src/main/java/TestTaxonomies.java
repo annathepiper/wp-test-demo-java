@@ -55,7 +55,7 @@ public class TestTaxonomies extends BaseTest {
     @Test
     public void TestGetTaxonomyTagThatDoesNotExist() throws UnirestException {
         wpLogger.info("Testing giving a taxonomy tag that doesn't exist to the Get Taxonomy by Tag endpoint.");
-        JSONObject response = wpTC.getTaxonomy(getTaxonomyNonExistentTag);
+        JSONObject response = wpTC.getTaxonomy(getNonExistentTag);
         wpTestLib.VerifyResponseItemDoesNotExist(response, getTaxonomyNonExistentCode, getTaxonomyNonExistentMessage);
     }
 
@@ -68,7 +68,7 @@ public class TestTaxonomies extends BaseTest {
     @Test
     public void TestGetTaxonomyTagBadTag() throws UnirestException {
         wpLogger.info("Testing giving a bad taxonomy tag to the Get Taxonomy by Tag endpoint.");
-        JSONObject response = wpTC.getTaxonomy(getTaxonomyInvalidTag);
+        JSONObject response = wpTC.getTaxonomy(getInvalidTag);
         wpTestLib.VerifyResponseItemIsInvalid(response, getInvalidCode, getInvalidMessage);
     }
 

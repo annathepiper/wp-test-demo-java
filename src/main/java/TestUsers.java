@@ -54,7 +54,7 @@ public class TestUsers extends BaseTest {
     @Test
     public void TestGetUserIdThatDoesNotExist() throws UnirestException {
         wpLogger.info("Testing giving a user ID that doesn't exist to the Get User by Id endpoint.");
-        JSONObject response = wpTC.getUserById(getUserNonExistentId);
+        JSONObject response = wpTC.getUserById(getNonExistentId);
         wpTestLib.VerifyResponseItemDoesNotExist(response, getUserNonExistentCode, getUserNonExistentMessage);
     }
 
