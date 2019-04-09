@@ -54,8 +54,8 @@ public class TestCategories extends BaseTest {
     @Test
     public void TestGetCategoryIdThatDoesNotExist() throws UnirestException {
         wpLogger.info("Testing giving a category ID that doesn't exist to the Get Category by Id endpoint.");
-        JSONObject response = wpTC.getCategory(getCategoryNonExistentId);
-        wpTestLib.VerifyResponseItemDoesNotExist(response, getCategoryNonExistentCode, getCategoryNonExistentMessage);
+        JSONObject response = wpTC.getCategory(getTermNonExistentId);
+        wpTestLib.VerifyResponseItemDoesNotExist(response, getTermNonExistentCode, getTermNonExistentMessage);
     }
 
     /**
@@ -80,7 +80,7 @@ public class TestCategories extends BaseTest {
     public void TestGetCategoryIdMaxInt() throws UnirestException {
         wpLogger.info("Testing giving MAX_VALUE Integer to the Get Category by Id endpoint.");
         JSONObject response = wpTC.getCategory(Integer.toString(Integer.MAX_VALUE));
-        wpTestLib.VerifyResponseItemDoesNotExist(response, getCategoryNonExistentCode, getCategoryNonExistentMessage);
+        wpTestLib.VerifyResponseItemDoesNotExist(response, getTermNonExistentCode, getTermNonExistentMessage);
     }
 
     /**

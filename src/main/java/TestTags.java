@@ -54,8 +54,8 @@ public class TestTags extends BaseTest {
     @Test
     public void TestGetTagIdThatDoesNotExist() throws UnirestException {
         wpLogger.info("Testing giving a tag ID that doesn't exist to the Get Tag by Id endpoint.");
-        JSONObject response = wpTC.getTag(getTagNonExistentId);
-        wpTestLib.VerifyResponseItemDoesNotExist(response, getTagNonExistentCode, getTagNonExistentMessage);
+        JSONObject response = wpTC.getTag(getTermNonExistentId);
+        wpTestLib.VerifyResponseItemDoesNotExist(response, getTermNonExistentCode, getTermNonExistentMessage);
     }
 
     /**
@@ -80,7 +80,7 @@ public class TestTags extends BaseTest {
     public void TestGetTagIdMaxInt() throws UnirestException {
         wpLogger.info("Testing giving MAX_VALUE Integer to the Get Tag by Id endpoint.");
         JSONObject response = wpTC.getTag(Integer.toString(Integer.MAX_VALUE));
-        wpTestLib.VerifyResponseItemDoesNotExist(response, getTagNonExistentCode, getTagNonExistentMessage);
+        wpTestLib.VerifyResponseItemDoesNotExist(response, getTermNonExistentCode, getTermNonExistentMessage);
     }
 
     /**
