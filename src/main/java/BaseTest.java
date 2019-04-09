@@ -14,17 +14,8 @@ public abstract class BaseTest {
     // Use these for test default values
     String getPostId;
     String getPostTitle;
-    String getNonExistentId;
-    String getNonExistentMessage;
-    String getNonExistentCode;
-    String getInvalidId;
-    String getInvalidMessage;
-    String getInvalidCode;
     String getCategoryId;
     String getCategoryName;
-    String getTermNonExistentId;
-    String getTermNonExistentMessage;
-    String getTermNonExistentCode;
     String getTagId;
     String getTagName;
     String getPageId;
@@ -41,6 +32,20 @@ public abstract class BaseTest {
     String getPostTypeName;
     String getPostStatusTag;
     String getPostStatusName;
+
+    // For negative test cases
+    String getNonExistentId;
+    String getNonExistentMessage;
+    String getNonExistentCode;
+    String getInvalidId;
+    String getInvalidMessage;
+    String getInvalidCode;
+    String getTermNonExistentId;
+    String getTermNonExistentMessage;
+    String getTermNonExistentCode;
+    String getCommentNonExistentId;
+    String getCommentNonExistentMessage;
+    String getCommentNonExistentCode;
 
     // For logging purposes
     protected final Logger wpLogger = LogManager.getLogger(this.getClass().getName());
@@ -61,17 +66,8 @@ public abstract class BaseTest {
         String host = rb.getString("host");
         getPostId = rb.getString("getPostId");
         getPostTitle = rb.getString("getPostTitle");
-        getNonExistentId = rb.getString("getNonExistentId");
-        getNonExistentMessage = rb.getString("getNonExistentMessage");
-        getNonExistentCode=rb.getString("getNonExistentCode");
-        getInvalidId = rb.getString("getInvalidId");
-        getInvalidMessage = rb.getString("getInvalidMessage");
-        getInvalidCode = rb.getString("getInvalidCode");
         getCategoryId = rb.getString("getCategoryId");
         getCategoryName = rb.getString("getCategoryName");
-        getTermNonExistentId = rb.getString("getTermNonExistentId");
-        getTermNonExistentMessage = rb.getString("getTermNonExistentMessage");
-        getTermNonExistentCode=rb.getString("getTermNonExistentCode");
         getTagId = rb.getString("getTagId");
         getTagName = rb.getString("getTagName");
         getPageId = rb.getString("getPageId");
@@ -93,6 +89,20 @@ public abstract class BaseTest {
         getPostTypeName = rb.getString("getPostTypeName");
         getPostStatusTag = rb.getString("getPostStatusTag");
         getPostStatusName = rb.getString("getPostStatusName");
+        getTermNonExistentId = rb.getString("getTermNonExistentId");
+        getTermNonExistentMessage = rb.getString("getTermNonExistentMessage");
+        getTermNonExistentCode=rb.getString("getTermNonExistentCode");
+        getCommentNonExistentId = rb.getString("getCommentNonExistentId");
+        getCommentNonExistentMessage = rb.getString("getCommentNonExistentMessage");
+        getCommentNonExistentCode=rb.getString("getCommentNonExistentCode");
+
+        // For negative test cases
+        getNonExistentId = rb.getString("getNonExistentId");
+        getNonExistentMessage = rb.getString("getNonExistentMessage");
+        getNonExistentCode=rb.getString("getNonExistentCode");
+        getInvalidId = rb.getString("getInvalidId");
+        getInvalidMessage = rb.getString("getInvalidMessage");
+        getInvalidCode = rb.getString("getInvalidCode");
 
         // We also need a WPTestClient object for all the tests to use
         wpTC = new WPTestClient(protocol, host);
