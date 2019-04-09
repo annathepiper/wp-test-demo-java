@@ -14,9 +14,9 @@ public abstract class BaseTest {
     // Use these for test default values
     String getPostId;
     String getPostTitle;
-    String getPostNonExistentId;
-    String getPostNonExistentMessage;
-    String getPostNonExistentCode;
+    String getNonExistentId;
+    String getNonExistentMessage;
+    String getNonExistentCode;
     String getInvalidId;
     String getInvalidMessage;
     String getInvalidCode;
@@ -64,9 +64,9 @@ public abstract class BaseTest {
         String host = rb.getString("host");
         getPostId = rb.getString("getPostId");
         getPostTitle = rb.getString("getPostTitle");
-        getPostNonExistentId = rb.getString("getPostNonExistentId");
-        getPostNonExistentMessage = rb.getString("getPostNonExistentMessage");
-        getPostNonExistentCode=rb.getString("getPostNonExistentCode");
+        getNonExistentId = rb.getString("getNonExistentId");
+        getNonExistentMessage = rb.getString("getNonExistentMessage");
+        getNonExistentCode=rb.getString("getNonExistentCode");
         getInvalidId = rb.getString("getInvalidId");
         getInvalidMessage = rb.getString("getInvalidMessage");
         getInvalidCode = rb.getString("getInvalidCode");
