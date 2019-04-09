@@ -57,6 +57,10 @@ public abstract class BaseTest {
     String getPostTypeNonExistentMessage;
     String getPostTypeNonExistentCode;
     String getPostTypeInvalidTag;
+    String getPostStatusNonExistentTag;
+    String getPostStatusNonExistentMessage;
+    String getPostStatusNonExistentCode;
+    String getPostStatusInvalidTag;
 
     // For logging purposes
     protected final Logger wpLogger = LogManager.getLogger(this.getClass().getName());
@@ -125,6 +129,10 @@ public abstract class BaseTest {
         getPostTypeNonExistentMessage = rb.getString("getPostTypeNonExistentMessage");
         getPostTypeNonExistentCode=rb.getString("getPostTypeNonExistentCode");
         getPostTypeInvalidTag = rb.getString("getPostTypeInvalidTag");
+        getPostStatusNonExistentTag = rb.getString("getPostStatusNonExistentTag");
+        getPostStatusNonExistentMessage = rb.getString("getPostStatusNonExistentMessage");
+        getPostStatusNonExistentCode=rb.getString("getPostStatusNonExistentCode");
+        getPostStatusInvalidTag = rb.getString("getPostStatusInvalidTag");
 
         // We also need a WPTestClient object for all the tests to use
         wpTC = new WPTestClient(protocol, host);
