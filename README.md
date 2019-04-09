@@ -34,6 +34,7 @@ Dependencies included in the POM are:
 * Use of a POM file to set Maven dependencies and to run the test suite via Maven as well as TestNG
 * Testing against a site running as a Docker container
 * Use of Log4j to do basic logging
+* Negative as well as positive test cases for the various endpoints
 
 ## Running the code yourself
 
