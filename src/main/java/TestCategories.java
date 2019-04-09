@@ -84,4 +84,42 @@ public class TestCategories extends BaseTest {
         Assert.assertEquals(responseData.get("status").toString(), "404",
                 "Get Category by Id endpoint didn't return expected error code.");
     }
+
+    /**
+     * TestGetCategoryIdMaxInt
+     * Verify that the Get Category by Id endpoint throws error behavior when using Integer.MAX_VALUE as a category ID.
+     * @throws UnirestException if the Unirest call goes wrong somehow
+     */
+    @Test
+    public void TestGetCategoryIdMaxInt() throws UnirestException {
+        wpLogger.info("Testing giving MAX_VALUE Integer to the Get Category by Id endpoint.");
+        JSONObject response = wpTC.getCategory(Integer.toString(Integer.MAX_VALUE));
+        Assert.assertEquals(response.get("code"), getCategoryNonExistentCode,
+                "Get Category by Id endpoint thinks this category ID actually exists.");
+        Assert.assertEquals(response.get("message"), getCategoryNonExistentMessage,
+                "Get Category by Id endpoint didn't throw the expected error message.");
+        JSONObject responseData = response.getJSONObject("data");
+        Assert.assertNotNull(responseData, "Get Category by Id endpoint didn't include data object in response.");
+        Assert.assertEquals(responseData.get("status").toString(), "404",
+                "Get Category by Id endpoint didn't return expected error code.");
+    }
+
+    /**
+     * TestGetCategoryIdMinInt
+     * Verify that the Get Category by Id endpoint throws error behavior when using Integer.MIN_VALUE as a category ID.
+     * @throws UnirestException if the Unirest call goes wrong somehow
+     */
+    @Test
+    public void TestGetCategoryIdMinInt() throws UnirestException {
+        wpLogger.info("Testing giving MIN_VALUE Integer to the Get Category by Id endpoint.");
+        JSONObject response = wpTC.getPost(Integer.toString(Integer.MIN_VALUE));
+        Assert.assertEquals(response.get("code"), getInvalidCode,
+                "Get Category by Id endpoint thinks this category ID is actually valid.");
+        Assert.assertEquals(response.get("message"), getInvalidMessage,
+                "Get Category by Id endpoint didn't throw the expected error message.");
+        JSONObject responseData = response.getJSONObject("data");
+        Assert.assertNotNull(responseData, "Get Category by Id endpoint didn't include data object in response.");
+        Assert.assertEquals(responseData.get("status").toString(), "404",
+                "Get Category by Id endpoint didn't return expected error code.");
+    }
 }
