@@ -46,6 +46,10 @@ public abstract class BaseTest {
     String getCommentNonExistentId;
     String getCommentNonExistentMessage;
     String getCommentNonExistentCode;
+    String getTaxonomyNonExistentTag;
+    String getTaxonomyNonExistentMessage;
+    String getTaxonomyNonExistentCode;
+    String getTaxonomyInvalidTag;
 
     // For logging purposes
     protected final Logger wpLogger = LogManager.getLogger(this.getClass().getName());
@@ -89,12 +93,6 @@ public abstract class BaseTest {
         getPostTypeName = rb.getString("getPostTypeName");
         getPostStatusTag = rb.getString("getPostStatusTag");
         getPostStatusName = rb.getString("getPostStatusName");
-        getTermNonExistentId = rb.getString("getTermNonExistentId");
-        getTermNonExistentMessage = rb.getString("getTermNonExistentMessage");
-        getTermNonExistentCode=rb.getString("getTermNonExistentCode");
-        getCommentNonExistentId = rb.getString("getCommentNonExistentId");
-        getCommentNonExistentMessage = rb.getString("getCommentNonExistentMessage");
-        getCommentNonExistentCode=rb.getString("getCommentNonExistentCode");
 
         // For negative test cases
         getNonExistentId = rb.getString("getNonExistentId");
@@ -103,6 +101,16 @@ public abstract class BaseTest {
         getInvalidId = rb.getString("getInvalidId");
         getInvalidMessage = rb.getString("getInvalidMessage");
         getInvalidCode = rb.getString("getInvalidCode");
+        getTermNonExistentId = rb.getString("getTermNonExistentId");
+        getTermNonExistentMessage = rb.getString("getTermNonExistentMessage");
+        getTermNonExistentCode=rb.getString("getTermNonExistentCode");
+        getCommentNonExistentId = rb.getString("getCommentNonExistentId");
+        getCommentNonExistentMessage = rb.getString("getCommentNonExistentMessage");
+        getCommentNonExistentCode=rb.getString("getCommentNonExistentCode");
+        getTaxonomyNonExistentTag = rb.getString("getTaxonomyNonExistentTag");
+        getTaxonomyNonExistentMessage = rb.getString("getTaxonomyNonExistentMessage");
+        getTaxonomyNonExistentCode=rb.getString("getTaxonomyNonExistentCode");
+        getTaxonomyInvalidTag = rb.getString("getTaxonomyInvalidTag");
 
         // We also need a WPTestClient object for all the tests to use
         wpTC = new WPTestClient(protocol, host);
