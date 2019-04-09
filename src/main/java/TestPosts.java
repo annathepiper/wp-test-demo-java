@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
  * TestPosts
  * @author Angela Korra'ti
  *
- * Last updated 4/8/2019
+ * Last updated 4/9/2019
  * This class contains test cases related to posts on the Wordpress test site.
  */
 public class TestPosts extends BaseTest {
@@ -73,6 +73,44 @@ public class TestPosts extends BaseTest {
     public void TestGetPostIdBadId() throws UnirestException {
         wpLogger.info("Testing giving a bad post ID to the Get Post by Id endpoint.");
         JSONObject response = wpTC.getPost(getInvalidId);
+        Assert.assertEquals(response.get("code"), getInvalidCode,
+                "Get Post by Id endpoint thinks this post ID is actually valid.");
+        Assert.assertEquals(response.get("message"), getInvalidMessage,
+                "Get Post by Id endpoint didn't throw the expected error message.");
+        JSONObject responseData = response.getJSONObject("data");
+        Assert.assertNotNull(responseData, "Get Post by Id endpoint didn't include data object in response.");
+        Assert.assertEquals(responseData.get("status").toString(), "404",
+                "Get Post by Id endpoint didn't return expected error code.");
+    }
+
+    /**
+     * TestGetPostIdMaxInt
+     * Verify that the Get Post by Id endpoint throws error behavior when using Integer.MAX_VALUE as a post ID.
+     * @throws UnirestException if the Unirest call goes wrong somehow
+     */
+    @Test
+    public void TestGetPostIdMaxInt() throws UnirestException {
+        wpLogger.info("Testing giving MAX_VALUE Integer to the Get Post by Id endpoint.");
+        JSONObject response = wpTC.getPost(Integer.toString(Integer.MAX_VALUE));
+        Assert.assertEquals(response.get("code"), getPostNonExistentCode,
+                "Get Post by Id endpoint thinks this post ID actually exists.");
+        Assert.assertEquals(response.get("message"), getPostNonExistentMessage,
+                "Get Post by Id endpoint didn't throw the expected error message.");
+        JSONObject responseData = response.getJSONObject("data");
+        Assert.assertNotNull(responseData, "Get Post by Id endpoint didn't include data object in response.");
+        Assert.assertEquals(responseData.get("status").toString(), "404",
+                "Get Post by Id endpoint didn't return expected error code.");
+    }
+
+    /**
+     * TestGetPostIdMinInt
+     * Verify that the Get Post by Id endpoint throws error behavior when using Integer.MIN_VALUE as a post ID.
+     * @throws UnirestException if the Unirest call goes wrong somehow
+     */
+    @Test
+    public void TestGetPostIdMinInt() throws UnirestException {
+        wpLogger.info("Testing giving MIN_VALUE Integer to the Get Post by Id endpoint.");
+        JSONObject response = wpTC.getPost(Integer.toString(Integer.MIN_VALUE));
         Assert.assertEquals(response.get("code"), getInvalidCode,
                 "Get Post by Id endpoint thinks this post ID is actually valid.");
         Assert.assertEquals(response.get("message"), getInvalidMessage,
