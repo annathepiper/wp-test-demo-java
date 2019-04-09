@@ -50,6 +50,9 @@ public abstract class BaseTest {
     String getTaxonomyNonExistentMessage;
     String getTaxonomyNonExistentCode;
     String getTaxonomyInvalidTag;
+    String getUserNonExistentId;
+    String getUserNonExistentMessage;
+    String getUserNonExistentCode;
 
     // For logging purposes
     protected final Logger wpLogger = LogManager.getLogger(this.getClass().getName());
@@ -111,6 +114,9 @@ public abstract class BaseTest {
         getTaxonomyNonExistentMessage = rb.getString("getTaxonomyNonExistentMessage");
         getTaxonomyNonExistentCode=rb.getString("getTaxonomyNonExistentCode");
         getTaxonomyInvalidTag = rb.getString("getTaxonomyInvalidTag");
+        getUserNonExistentId = rb.getString("getUserNonExistentId");
+        getUserNonExistentMessage = rb.getString("getUserNonExistentMessage");
+        getUserNonExistentCode=rb.getString("getUserNonExistentCode");
 
         // We also need a WPTestClient object for all the tests to use
         wpTC = new WPTestClient(protocol, host);
