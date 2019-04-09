@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
  * TestTags
  * @author Angela Korra'ti
  *
- * Last updated 4/8/2019
+ * Last updated 4/9/2019
  * This class contains test cases related to tags on the Wordpress test site.
  */
 public class TestTags extends BaseTest {
@@ -75,6 +75,44 @@ public class TestTags extends BaseTest {
     public void TestGetTagIdBadId() throws UnirestException {
         wpLogger.info("Testing giving a bad tag ID to the Get Tag by Id endpoint.");
         JSONObject response = wpTC.getTag(getInvalidId);
+        Assert.assertEquals(response.get("code"), getInvalidCode,
+                "Get Tag by Id endpoint thinks this tag ID is actually valid.");
+        Assert.assertEquals(response.get("message"), getInvalidMessage,
+                "Get Tag by Id endpoint didn't throw the expected error message.");
+        JSONObject responseData = response.getJSONObject("data");
+        Assert.assertNotNull(responseData, "Get Tag by Id endpoint didn't include data object in response.");
+        Assert.assertEquals(responseData.get("status").toString(), "404",
+                "Get Tag by Id endpoint didn't return expected error code.");
+    }
+
+    /**
+     * TestGetTagIdMaxInt
+     * Verify that the Get Tag by Id endpoint throws error behavior when using Integer.MAX_VALUE as a tag ID.
+     * @throws UnirestException if the Unirest call goes wrong somehow
+     */
+    @Test
+    public void TestGetTagIdMaxInt() throws UnirestException {
+        wpLogger.info("Testing giving MAX_VALUE Integer to the Get Tag by Id endpoint.");
+        JSONObject response = wpTC.getTag(Integer.toString(Integer.MAX_VALUE));
+        Assert.assertEquals(response.get("code"), getTagNonExistentCode,
+                "Get Tag by Id endpoint thinks this tag ID actually exists.");
+        Assert.assertEquals(response.get("message"), getTagNonExistentMessage,
+                "Get Tag by Id endpoint didn't throw the expected error message.");
+        JSONObject responseData = response.getJSONObject("data");
+        Assert.assertNotNull(responseData, "Get Tag by Id endpoint didn't include data object in response.");
+        Assert.assertEquals(responseData.get("status").toString(), "404",
+                "Get Tag by Id endpoint didn't return expected error code.");
+    }
+
+    /**
+     * TestGetTagIdMinInt
+     * Verify that the Get Tag by Id endpoint throws error behavior when using Integer.MIN_VALUE as a tag ID.
+     * @throws UnirestException if the Unirest call goes wrong somehow
+     */
+    @Test
+    public void TestGetTagIdMinInt() throws UnirestException {
+        wpLogger.info("Testing giving MIN_VALUE Integer to the Get Tag by Id endpoint.");
+        JSONObject response = wpTC.getTag(Integer.toString(Integer.MIN_VALUE));
         Assert.assertEquals(response.get("code"), getInvalidCode,
                 "Get Tag by Id endpoint thinks this tag ID is actually valid.");
         Assert.assertEquals(response.get("message"), getInvalidMessage,
