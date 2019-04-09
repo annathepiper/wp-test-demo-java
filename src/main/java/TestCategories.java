@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
  * TestCategories
  * @author Angela Korra'ti
  *
- * Last updated 4/8/2019
+ * Last updated 4/9/2019
  * This class contains test cases related to categories on the Wordpress test site.
  */
 public class TestCategories extends BaseTest {
