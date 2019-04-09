@@ -55,14 +55,7 @@ public class TestTags extends BaseTest {
     public void TestGetTagIdThatDoesNotExist() throws UnirestException {
         wpLogger.info("Testing giving a tag ID that doesn't exist to the Get Tag by Id endpoint.");
         JSONObject response = wpTC.getTag(getTagNonExistentId);
-        Assert.assertEquals(response.get("code"), getTagNonExistentCode,
-                "Get Tag by Id endpoint thinks this tag ID actually exists.");
-        Assert.assertEquals(response.get("message"), getTagNonExistentMessage,
-                "Get Tag by Id endpoint didn't throw the expected error message.");
-        JSONObject responseData = response.getJSONObject("data");
-        Assert.assertNotNull(responseData, "Get Tag by Id endpoint didn't include data object in response.");
-        Assert.assertEquals(responseData.get("status").toString(), "404",
-                "Get Tag by Id endpoint didn't return expected error code.");
+        wpTestLib.VerifyResponseItemDoesNotExist(response, getTagNonExistentCode, getTagNonExistentMessage);
     }
 
     /**
@@ -75,14 +68,7 @@ public class TestTags extends BaseTest {
     public void TestGetTagIdBadId() throws UnirestException {
         wpLogger.info("Testing giving a bad tag ID to the Get Tag by Id endpoint.");
         JSONObject response = wpTC.getTag(getInvalidId);
-        Assert.assertEquals(response.get("code"), getInvalidCode,
-                "Get Tag by Id endpoint thinks this tag ID is actually valid.");
-        Assert.assertEquals(response.get("message"), getInvalidMessage,
-                "Get Tag by Id endpoint didn't throw the expected error message.");
-        JSONObject responseData = response.getJSONObject("data");
-        Assert.assertNotNull(responseData, "Get Tag by Id endpoint didn't include data object in response.");
-        Assert.assertEquals(responseData.get("status").toString(), "404",
-                "Get Tag by Id endpoint didn't return expected error code.");
+        wpTestLib.VerifyResponseItemDoesNotExist(response, getInvalidCode, getInvalidMessage);
     }
 
     /**
@@ -94,14 +80,7 @@ public class TestTags extends BaseTest {
     public void TestGetTagIdMaxInt() throws UnirestException {
         wpLogger.info("Testing giving MAX_VALUE Integer to the Get Tag by Id endpoint.");
         JSONObject response = wpTC.getTag(Integer.toString(Integer.MAX_VALUE));
-        Assert.assertEquals(response.get("code"), getTagNonExistentCode,
-                "Get Tag by Id endpoint thinks this tag ID actually exists.");
-        Assert.assertEquals(response.get("message"), getTagNonExistentMessage,
-                "Get Tag by Id endpoint didn't throw the expected error message.");
-        JSONObject responseData = response.getJSONObject("data");
-        Assert.assertNotNull(responseData, "Get Tag by Id endpoint didn't include data object in response.");
-        Assert.assertEquals(responseData.get("status").toString(), "404",
-                "Get Tag by Id endpoint didn't return expected error code.");
+        wpTestLib.VerifyResponseItemDoesNotExist(response, getTagNonExistentCode, getTagNonExistentMessage);
     }
 
     /**
@@ -113,13 +92,6 @@ public class TestTags extends BaseTest {
     public void TestGetTagIdMinInt() throws UnirestException {
         wpLogger.info("Testing giving MIN_VALUE Integer to the Get Tag by Id endpoint.");
         JSONObject response = wpTC.getTag(Integer.toString(Integer.MIN_VALUE));
-        Assert.assertEquals(response.get("code"), getInvalidCode,
-                "Get Tag by Id endpoint thinks this tag ID is actually valid.");
-        Assert.assertEquals(response.get("message"), getInvalidMessage,
-                "Get Tag by Id endpoint didn't throw the expected error message.");
-        JSONObject responseData = response.getJSONObject("data");
-        Assert.assertNotNull(responseData, "Get Tag by Id endpoint didn't include data object in response.");
-        Assert.assertEquals(responseData.get("status").toString(), "404",
-                "Get Tag by Id endpoint didn't return expected error code.");
+        wpTestLib.VerifyResponseItemDoesNotExist(response, getInvalidCode, getInvalidMessage);
     }
 }
