@@ -53,8 +53,8 @@ public class TestPosts extends BaseTest {
     @Test
     public void TestGetPostIdThatDoesNotExist() throws UnirestException {
         wpLogger.info("Testing giving a post ID that doesn't exist to the Get Post by Id endpoint.");
-        JSONObject response = wpTC.getPost(getPostNonExistentId);
-        wpTestLib.VerifyResponseItemDoesNotExist(response, getPostNonExistentCode, getPostNonExistentMessage);
+        JSONObject response = wpTC.getPost(getNonExistentId);
+        wpTestLib.VerifyResponseItemDoesNotExist(response, getNonExistentCode, getNonExistentMessage);
     }
 
     /**
@@ -78,7 +78,7 @@ public class TestPosts extends BaseTest {
     public void TestGetPostIdMaxInt() throws UnirestException {
         wpLogger.info("Testing giving MAX_VALUE Integer to the Get Post by Id endpoint.");
         JSONObject response = wpTC.getPost(Integer.toString(Integer.MAX_VALUE));
-        wpTestLib.VerifyResponseItemDoesNotExist(response, getPostNonExistentCode, getPostNonExistentMessage);
+        wpTestLib.VerifyResponseItemDoesNotExist(response, getNonExistentCode, getNonExistentMessage);
     }
 
     /**
