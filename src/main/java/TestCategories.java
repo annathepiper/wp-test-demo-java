@@ -55,14 +55,7 @@ public class TestCategories extends BaseTest {
     public void TestGetCategoryIdThatDoesNotExist() throws UnirestException {
         wpLogger.info("Testing giving a category ID that doesn't exist to the Get Category by Id endpoint.");
         JSONObject response = wpTC.getCategory(getCategoryNonExistentId);
-        Assert.assertEquals(response.get("code"), getCategoryNonExistentCode,
-                "Get Category by Id endpoint thinks this category ID actually exists.");
-        Assert.assertEquals(response.get("message"), getCategoryNonExistentMessage,
-                "Get Category by Id endpoint didn't throw the expected error message.");
-        JSONObject responseData = response.getJSONObject("data");
-        Assert.assertNotNull(responseData, "Get Category by Id endpoint didn't include data object in response.");
-        Assert.assertEquals(responseData.get("status").toString(), "404",
-                "Get Category by Id endpoint didn't return expected error code.");
+        wpTestLib.VerifyResponseItemDoesNotExist(response, getCategoryNonExistentCode, getCategoryNonExistentMessage);
     }
 
     /**
@@ -75,14 +68,7 @@ public class TestCategories extends BaseTest {
     public void TestGetCategoryIdBadId() throws UnirestException {
         wpLogger.info("Testing giving a bad category ID to the Get Category by Id endpoint.");
         JSONObject response = wpTC.getCategory(getInvalidId);
-        Assert.assertEquals(response.get("code"), getInvalidCode,
-                "Get Category by Id endpoint thinks this category ID is actually valid.");
-        Assert.assertEquals(response.get("message"), getInvalidMessage,
-                "Get Category by Id endpoint didn't throw the expected error message.");
-        JSONObject responseData = response.getJSONObject("data");
-        Assert.assertNotNull(responseData, "Get Category by Id endpoint didn't include data object in response.");
-        Assert.assertEquals(responseData.get("status").toString(), "404",
-                "Get Category by Id endpoint didn't return expected error code.");
+        wpTestLib.VerifyResponseItemDoesNotExist(response, getInvalidCode, getInvalidMessage);
     }
 
     /**
@@ -94,14 +80,7 @@ public class TestCategories extends BaseTest {
     public void TestGetCategoryIdMaxInt() throws UnirestException {
         wpLogger.info("Testing giving MAX_VALUE Integer to the Get Category by Id endpoint.");
         JSONObject response = wpTC.getCategory(Integer.toString(Integer.MAX_VALUE));
-        Assert.assertEquals(response.get("code"), getCategoryNonExistentCode,
-                "Get Category by Id endpoint thinks this category ID actually exists.");
-        Assert.assertEquals(response.get("message"), getCategoryNonExistentMessage,
-                "Get Category by Id endpoint didn't throw the expected error message.");
-        JSONObject responseData = response.getJSONObject("data");
-        Assert.assertNotNull(responseData, "Get Category by Id endpoint didn't include data object in response.");
-        Assert.assertEquals(responseData.get("status").toString(), "404",
-                "Get Category by Id endpoint didn't return expected error code.");
+        wpTestLib.VerifyResponseItemDoesNotExist(response, getCategoryNonExistentCode, getCategoryNonExistentMessage);
     }
 
     /**
@@ -113,13 +92,6 @@ public class TestCategories extends BaseTest {
     public void TestGetCategoryIdMinInt() throws UnirestException {
         wpLogger.info("Testing giving MIN_VALUE Integer to the Get Category by Id endpoint.");
         JSONObject response = wpTC.getCategory(Integer.toString(Integer.MIN_VALUE));
-        Assert.assertEquals(response.get("code"), getInvalidCode,
-                "Get Category by Id endpoint thinks this category ID is actually valid.");
-        Assert.assertEquals(response.get("message"), getInvalidMessage,
-                "Get Category by Id endpoint didn't throw the expected error message.");
-        JSONObject responseData = response.getJSONObject("data");
-        Assert.assertNotNull(responseData, "Get Category by Id endpoint didn't include data object in response.");
-        Assert.assertEquals(responseData.get("status").toString(), "404",
-                "Get Category by Id endpoint didn't return expected error code.");
+        wpTestLib.VerifyResponseItemDoesNotExist(response, getInvalidCode, getInvalidMessage);
     }
 }
