@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
  * BaseTest
  * @author Angela Korra'ti
  *
- * Last updated 4/8/2019
+ * Last updated 4/9/2019
  * This test class is the master class for the TestNG suite. Does necessary setup work for all classes.
  */
 public abstract class BaseTest {
@@ -54,6 +54,9 @@ public abstract class BaseTest {
     // For generating the instance of the WP Test Client
     protected WPTestClient wpTC;
 
+    // For generating the instance of the WPTestLib class
+    WPTestLib wpTestLib;
+
     @BeforeClass
     protected void setup() {
         // Get the needed properties out of the file
@@ -99,5 +102,8 @@ public abstract class BaseTest {
 
         // We also need a WPTestClient object for all the tests to use
         wpTC = new WPTestClient(protocol, host);
+
+        // And a WPTestLib object
+        wpTestLib = new WPTestLib();
     }
 }
