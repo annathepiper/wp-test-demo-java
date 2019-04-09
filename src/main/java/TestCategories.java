@@ -112,7 +112,7 @@ public class TestCategories extends BaseTest {
     @Test
     public void TestGetCategoryIdMinInt() throws UnirestException {
         wpLogger.info("Testing giving MIN_VALUE Integer to the Get Category by Id endpoint.");
-        JSONObject response = wpTC.getPost(Integer.toString(Integer.MIN_VALUE));
+        JSONObject response = wpTC.getCategory(Integer.toString(Integer.MIN_VALUE));
         Assert.assertEquals(response.get("code"), getInvalidCode,
                 "Get Category by Id endpoint thinks this category ID is actually valid.");
         Assert.assertEquals(response.get("message"), getInvalidMessage,
