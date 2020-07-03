@@ -11,7 +11,7 @@ To run this suite, I set up a test Wordpress site using Docker Compose. You can 
 
 I also add aliases for wordpress.local and phpmyadmin.local to my hosts file, so that those URLs will work as the automation runs.
 
-The test data I'm using is a copy of one of my [live Wordpress sites](http://angelahighland.info), which has provided me the items to fill in for my properties file.
+The test data I'm using is a copy of one of my [live Wordpress sites](https://angelahighland.info), which has provided me the items to fill in for my properties file.
 
 The main tool I'm using to run the suite is IntelliJ. The IML file for IntelliJ is included in this repo, as well as the pom.xml, as this is set up as a Maven project. I use the Unirest library to hit the Wordpress endpoints.
 
@@ -24,6 +24,8 @@ Dependencies included in the POM are:
 * org.testng
 * org.apache.maven.plugins (for Surefire, and exclusion to force use of log4j 2)
 * org.apache.log4j (version 2)
+
+Dependencies in the POM were last updated as of 7/3/2020.
 
 ## Skills and tech I'm demonstrating here
 
@@ -51,6 +53,10 @@ If you'd like to try running this suite yourself, you will need to do the follow
 9. In IntelliJ, use the testng.xml file to create a configuration you can use to run the test cases. It's a suite file, so you'll want to choose "Suite" in the configuration settings. All other settings can remain as default.
 10. Open the wp-test-demo.properties file and edit it as appropriate to reflect what test data you're using.
 11. If you use my Postman collection and environment, you should also tweak the environment settings to reflect your test data. The environment file should match what you put into the properties file in IntelliJ.
+
+### Running the code on a Linux environment
+
+This code has been successfully most recently run against IntelliJ Community Edition 2020.1.2, on an Ubuntu Linux install (Ubuntu 20.04 LTS) with OpenJDK version 1.8 installed.
 
 ### Running the code on a Windows 10 environment
 
