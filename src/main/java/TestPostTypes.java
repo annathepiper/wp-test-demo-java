@@ -21,7 +21,7 @@ public class TestPostTypes extends BaseTest {
     public void TestGetPostTypesReturnsPostTypes() throws UnirestException {
         wpLogger.info("Testing the Get Post Types endpoint.");
         JSONObject response = wpTC.getPostTypes();
-        Assert.assertEquals(response.length(), 4,
+        Assert.assertEquals(response.length(), 8,
                 "GetPostTypes endpoint not returning at least one object in JSONArray.");
         Assert.assertNotNull(response,"GetPostTypes endpoint returned a null response.");
     }
