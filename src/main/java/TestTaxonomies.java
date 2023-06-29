@@ -22,7 +22,7 @@ public class TestTaxonomies extends BaseTest {
     public void TestGetTaxonomiesReturnsTaxonomies() throws UnirestException {
         wpLogger.info("Testing the Get Taxonomies endpoint.");
         JSONObject response = wpTC.getTaxonomies();
-        Assert.assertEquals(response.length(), 2,
+        Assert.assertEquals(response.length(), 3,
                 "GetTaxonomies endpoint not returning expected JSONObject length.");
         Assert.assertNotNull(response,"GetTaxonomies endpoint returned a null response.");
     }
