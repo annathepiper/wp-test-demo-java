@@ -1,9 +1,12 @@
 # wp-test-demo-java
-Project to demonstrate my automation testing skills in Java, as part of my 2019 job search for SDET positions.
+Project to demonstrate my automation testing skills in Java, originally created as part of my 2019 job search for SDET positions, and updated again for my 2023 job search.
 
 This suite of test cases runs against an example Wordpress site. It uses Wordpress REST API endpoints to retrieve data about the test site, and analyzes JSON payloads returned by these endpoints.
 
 In Phase 1 of this demo, I am working with the endpoints that provide publicly available data, such as the posts, categories, tags, and pages visible on the site.
+
+## Code status
+Dependencies in the POM were last updated as of 6/28/2023. All test cases existing as of the 2019 work were confirmed to pass as of 6/29/2023, following a checkin of minor bugfixes and a refresh of my local Docker coantainers.
 
 ## Prerequisites
 
@@ -24,8 +27,6 @@ Dependencies included in the POM are:
 * org.testng
 * org.apache.maven.plugins (for Surefire, and exclusion to force use of log4j 2)
 * org.apache.log4j (version 2)
-
-Dependencies in the POM were last updated as of 7/3/2020.
 
 ## Skills and tech I'm demonstrating here
 
